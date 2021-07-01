@@ -1,10 +1,12 @@
 body {
-    font-family: 'Oswald', sans-serif;
+          font-family: 'Oswald', sans-serif;
           font-weight: 300;
           background: #fafafa;
 }
 
-a,a:hover,a:focus {
+a,
+a:hover,
+a:focus {
           color: inherit;
           text-decoration: none;
           transition: all 0.3s;
@@ -72,6 +74,16 @@ a[aria-expanded='true'] {
                     display: none;
           }
 }
+.toggeles {
+          color: white;
+          background-color: #2f8cb4;
+}
+.toggeles:hover {
+          background-color: #0c6489;
+}
+.admin_text {
+          color: #2f8cb4;
+}
 
 .cardstyle {
           width: 80%;
@@ -88,7 +100,7 @@ a[aria-expanded='true'] {
           margin-top: 80px;
 }
 .carIcon {
-          background-image: url(./image/caricon.png);
+          background-image: url(../image/caricon.png);
           background-repeat: no-repeat;
           background-position: left;
           background-size: 5vw 6vh;
@@ -104,7 +116,7 @@ a[aria-expanded='true'] {
           margin-top: 80px;
 }
 .carIcon2 {
-          background-image: url(./image/Group\ 2.png);
+          background-image: url(../image/Group\ 2.png);
           background-repeat: no-repeat;
           background-position: left;
           background-size: 5vw 10vh;
@@ -119,7 +131,7 @@ a[aria-expanded='true'] {
           margin-top: 80px;
 }
 .carIcon3 {
-          background-image: url(./image/Reservationicon.png);
+          background-image: url(../image/Reservationicon.png);
           background-repeat: no-repeat;
           background-position: left;
           background-size: 5vw 8vh;
@@ -134,7 +146,7 @@ a[aria-expanded='true'] {
           margin-top: 80px;
 }
 .carIcon4 {
-          background-image: url(./image/expenditureicon.png);
+          background-image: url(../image/expenditureicon.png);
           background-repeat: no-repeat;
           background-position: left;
           background-size: 5vw 8vh;
@@ -147,4 +159,22 @@ a[aria-expanded='true'] {
           top: 10px;
           left: 25px;
           box-shadow: 0 25px 50px rgb(52, 102, 131);
+}
+
+.btn_car_showmore {
+          color: #2f8cb4;
+          background-color: white;
+          border: 1px solid #ffffff;
+}
+.btn_car_showmore:hover {
+          color: #ffffff;
+          background-color: #2f8cb4;
+}
+.card_body_Cars {
+          background-color: #2f8cb4;
+}
+
+.imgRes {
+          width: 100px;
+          height: 60px;
 }

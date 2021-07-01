@@ -36,39 +36,11 @@
 <body>
     <div class="container-fluid">
 
-        <a href="reservation.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+        <a href="Cars.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
         <div class="row  justify-content-center align-items-center">
 
             <form action="" method="post" class="col-7 row form">
-                <h4 class="col-12 text-center mb-3 mt-1 textcolor">Client Information</h4>
-                <div class="form-group col-6">
-                    <label for="exampleInputEmail1">First Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter your first name" type="text">
-                </div>
-
-                <div class="form-group col-6">
-                    <label for="">last Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter your last name" type="text">
-                </div>
-
-                <div class="form-group col-6">
-                    <label for="">Phone</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter your phone" type="text">
-                </div>
-
-                <div class="form-group col-6">
-                    <label for="">CIN</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter your CIN" type="text">
-                </div>
-            </form>
-
-        </div>
-        <hr>
-
-        <div class="row  justify-content-center align-items-center">
-
-            <form action="" method="post" class="col-7 row form">
-                <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
+                <h4 class="col-12 text-center mb-3 mt-1 textcolor">Add Car</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
                     <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter registration number" type="text">
@@ -76,27 +48,48 @@
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="">Date Start </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter Date Start" type="datetime-local">
+                    <label for="">date of purchase </label>
+                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter date of purchase" type="date">
                 </div>
 
                 <div class="form-group col-6">
-                    <label for="">Date End</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter Date End" type="datetime-local">
+                    <label for="">Color</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter Color" type="text">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="exampleInputEmail1">Price Min </label>
+                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter Price Min " type="text">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="">Price Max</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter Price Max" type="text">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="">End of circulation </label>
+                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter End of circulation " type="date">
+                </div>
+
+                <div class="form-group col-6">
+                    <label for="">mileage</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter mileage" type="text">
+                </div>
+                <div class="form-group col-12">
+                    <label for="">Buying price </label>
+                    <input class="form-control" aria-describedby="emailHelp" name="password" placeholder="Enter Buying price " type="text">
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
                     <input class="form-control" aria-describedby="emailHelp" name="password" placeholder="Enter Car Image" type="file">
                 </div>
 
-                <div class="form-group col-12">
-                    <label for="">Price Total</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="confirm" placeholder="Enter Price Total" type="text">
-                </div>
+
                 <div class="col-12">
                     <a href=""><button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button></a>
                 </div>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/ShowMoreCar.css">
+  <link rel="stylesheet" href="./css/showmorcar.css">
   <title>Document</title>
 </head>
 
@@ -21,21 +21,20 @@
       $Get_Car->execute();
       while ($Car_Info = $Get_Car->fetch()) {
       ?>
-        <div class="col-lg-7 order-lg-2 order-1 justify-self-end">
-          <img src="<?= $Car_Info["CarImage"] ?>" class="imgShowMore mt-5" alt="">
+        <div class="col-lg-7 col-12 order-lg-2 order-1 justify-self-end">
+          <img src="<?= $Car_Info["CarImage"] ?>" class="imgShowMore mt-5 col-12" alt="">
         </div>
       <?php } ?>
       <div class="col-lg-5 col-12 order-lg-1 order-2 row justify-content-center">
-
+      
+      <a href="Giniral_Info.php?gin=<?php echo $get ; ?>" class="col-12">
         <div class="col-lg-8 row align-items-center cardstyle cardstyle1">
           <div class="col-3 carIcon"></div>
           <div class="col-9">
-
-            <h3 class="text-white text-center"> <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12"> General Info</a></h3>
-
+            <h3 class="text-white text-center">  General Info</h3>
           </div>
         </div>
-
+        </a>
 
         <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
           <div class="col-lg-8  row align-items-center cardstyle cardstyle2">

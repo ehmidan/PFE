@@ -19,7 +19,7 @@
           }
 }
 
-.cardstyle {
+style {
           width: 80%;
           height: 100px;
           margin-left: 20px;
@@ -28,8 +28,8 @@
 .cardstyle1 {
           background-image: linear-gradient(
                     to right,
-                    #0c6489 25%,
-                    #7cbdda -75%
+                    #0c6489 28%,
+                    #7cbdda -72%
           );
           margin-top: 80px;
 }
@@ -44,8 +44,8 @@
 .cardstyle2 {
           background-image: linear-gradient(
                     to right,
-                    #0c6489 25%,
-                    #7cbdda -75%
+                    #0c6489 28%,
+                    #7cbdda -72%
           );
           margin-top: 50px;
 }
@@ -59,8 +59,8 @@
 .cardstyle3 {
           background-image: linear-gradient(
                     to right,
-                    #0c6489 25%,
-                    #7cbdda -75%
+                    #0c6489 28%,
+                    #7cbdda -72%
           );
           margin-top: 50px;
 }
@@ -74,8 +74,8 @@
 .cardstyle4 {
           background-image: linear-gradient(
                     to right,
-                    #0c6489 25%,
-                    #7cbdda -75%
+                    #0c6489 28%,
+                    #7cbdda -72%
           );
           margin-top: 50px;
 }

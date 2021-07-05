@@ -1,25 +1,34 @@
-<!-- <?php
+ <?php
         include "connect.php";
         if (isset($_POST['submit'])) {
-            $NAME = $_POST["name"];
-            $CATEGORY = $_POST["category"];
-            $PRICE = $_POST["price"];
-            $QUANTITY = $_POST["quantity"];
-            $LINK = $_POST["link"];
+            $fname = $_POST["fname"];
+            $lname = $_POST["lname"];
+            $phone = $_POST["phone"];
+            $CIN = $_POST["CIN"];
+            $registration_number = $_POST["registration_number"];
+            $Mark = $_POST["Mark"];
+            $DStart = $_POST["DStart"];
+            $DEnd = $_POST["DEnd"];
+            $Car_Image = $_POST["Car_Image"];
+            $Ptotal = $_POST["Ptotal"];
 
-            $sql = "INSERT INTO  catigorys (name,quantity,Price,Category,ImgCategory) VALUES (:NAME, :QUANTITY, :PRICE , :CATEGORY, :LINK)";
+            // $Car_Image = $_FILES['Car_Image']['tmp_name'];
+            //     $traget = "les images/" . $_FILES['Car_Image']['name'];
+            //     move_uploaded_file($Car_Image, $traget);
+
+            $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Rigestration_Number,Mark,Date_Start,Date_End,Car_Image,Price_Total) VALUES (:fname, :lname, :phone , :CIN, :registration_number, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal)";
 
             $pdor = $pdo->prepare($sql);
 
-            $pdoe = $pdor->execute(array(":NAME" => $NAME, ":CATEGORY" => $CATEGORY, ":QUANTITY" => $QUANTITY, ":PRICE" => $PRICE, ":LINK" => $LINK));
+            $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal));
             if ($pdoe) {
-                header("location:category.php");
+                header("location:reservation.php");
             } else {
                 echo "Data not insert";
             }
         }
 
-        ?> -->
+        ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,47 +67,40 @@
 
                 <div class="form-group col-6">
                     <label for="">CIN</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter your CIN" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="CIN" placeholder="Enter your CIN" type="text">
                 </div>
-            </form>
-
-        </div>
         <hr>
-
-        <div class="row  justify-content-center align-items-center">
-
-            <form action="" method="post" class="col-7 row form">
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter registration number" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="registration_number" placeholder="Enter registration number" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Mark" placeholder="Enter the Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Date Start </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter Date Start" type="datetime-local">
+                    <input class="form-control" aria-describedby="emailHelp" name="DStart" placeholder="Enter Date Start" type="datetime-local">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Date End</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter Date End" type="datetime-local">
+                    <input class="form-control" aria-describedby="emailHelp" name="DEnd" placeholder="Enter Date End" type="datetime-local">
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="password" placeholder="Enter Car Image" type="file">
+                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="text">
                 </div>
 
                 <div class="form-group col-12">
                     <label for="">Price Total</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="confirm" placeholder="Enter Price Total" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Ptotal" placeholder="Enter Price Total" type="text">
                 </div>
                 <div class="col-12">
-                    <a href=""><button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button></a>
+                    <button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button>
                 </div>
         </div>
         </form>

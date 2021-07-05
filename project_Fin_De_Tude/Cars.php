@@ -42,16 +42,29 @@
                 <h3 class="admin_text">Admin</h3>
             </nav>
 
-            <div class="card mt-3" style="width: 18rem;">
-                <img class="card-img-top" src="./image/126-1266213_ford-png-image-ford-fiesta-candy-blue-transparent-removebg-preview.png" alt="Card image cap">
-                <div class="card-body card_body_Cars">
-                    <h5 class="card-title text-white">Card title</h5>
-                    <a href="CarShowMore.php" class="btn btn_car_showmore">Show More</a>
+            <div class="row justufy-content-center">
+            <?php
+            include "connect.php";
+            $Get_Cars = $pdo->prepare("SELECT * FROM cars");
+            $Get_Cars->execute();
+
+            while ($Car = $Get_Cars->fetch()) {
+
+            ?>
+
+                <div class="card col-lg-3 col-12  mt-3" style="width: 18rem;">
+                    <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 14rem;">
+                    <div class="card-body card_body_Cars">
+                        <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
+                        <a href="CarShowMore.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore">Show More</a>
+                    </div>
                 </div>
+            <?php } ?>
             </div>
-            <div class="col-12 text-center"><a href="AddCar.php"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add Car </button></a></div>
+            <div class="col-12 text-center mt-5"><a href="AddCar.php"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add Car </button></a></div>
         </div>
     </div>
+
 
     <script src="./bootstrap/js/popper.min.js"></script>
     <script src="./bootstrap/js/jquery-3.5.1.min.js"></script>

@@ -14,38 +14,53 @@
   <div class="container-fluid">
     <a href="Cars.php"><button class="btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
     <div class="row">
+      <?php
+      include "connect.php";
+      $get = $_GET['id_Car'];
+      $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number ='$get'");
+      $Get_Car->execute();
+      while ($Car_Info = $Get_Car->fetch()) {
+      ?>
+        <div class="col-lg-7 order-lg-2 order-1 justify-self-end">
+          <img src="<?= $Car_Info["CarImage"] ?>" class="imgShowMore mt-5" alt="">
+        </div>
+      <?php } ?>
       <div class="col-lg-5 col-12 order-lg-1 order-2 row justify-content-center">
 
         <div class="col-lg-8 row align-items-center cardstyle cardstyle1">
           <div class="col-3 carIcon"></div>
           <div class="col-9">
-            <h3 class="text-white text-center"> General Info</h3>
+
+            <h3 class="text-white text-center"> <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12"> General Info</a></h3>
+
           </div>
         </div>
 
-        <div class="col-lg-8  row align-items-center cardstyle cardstyle2">
-          <div class="col-3 carIcon2 mb-2"></div>
-          <div class="col-9">
-            <h3 class="text-white text-center"> Insurance</h3>
-          </div>
-        </div>
 
-        <div class="col-lg-8  row align-items-center cardstyle cardstyle3">
-          <div class="col-lg-3 col-2 carIcon3 "></div>
-          <div class="col-lg-8 col-9 ">
-            <h3 class="text-white text-center">Car drain</h3>
+        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+          <div class="col-lg-8  row align-items-center cardstyle cardstyle2">
+            <div class="col-3 carIcon2 mb-2"></div>
+            <div class="col-9">
+              <h3 class="text-white text-center"> Insurance</h3>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-8 row align-items-center cardstyle cardstyle4">
-          <div class="col-lg-3 col-2 carIcon4 "></div>
-          <div class="col-lg-8 col-9">
-            <h3 class="text-white text-center"> Tech visit</h3>
+        </a>
+        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+          <div class="col-lg-8  row align-items-center cardstyle cardstyle3">
+            <div class="col-lg-3 col-2 carIcon3 "></div>
+            <div class="col-lg-8 col-9 ">
+              <h3 class="text-white text-center">Car drain</h3>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-7 order-lg-2 order-1 justify-self-end">
-        <img src="./image/126-1266213_ford-png-image-ford-fiesta-candy-blue-transparent-removebg-preview.png" class="imgShowMore mt-5" alt="">
+        </a>
+        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+          <div class="col-lg-8 row align-items-center cardstyle cardstyle4">
+            <div class="col-lg-3 col-2 carIcon4 "></div>
+            <div class="col-lg-8 col-9">
+              <h3 class="text-white text-center"> Tech visit</h3>
+            </div>
+          </div>
+        </a>
       </div>
 
     </div>

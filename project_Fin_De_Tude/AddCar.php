@@ -1,25 +1,34 @@
-<!-- <?php
+<?php
         include "connect.php";
         if (isset($_POST['submit'])) {
-            $NAME = $_POST["name"];
-            $CATEGORY = $_POST["category"];
-            $PRICE = $_POST["price"];
-            $QUANTITY = $_POST["quantity"];
-            $LINK = $_POST["link"];
+            $registration_number = $_POST["registration_number"];
+            $mark = $_POST["mark"];
+            $date_of_purchase = $_POST["date_of_purchase"];
+            $color = $_POST["color"];
+            $Pmin = $_POST["Pmin"];
+            $Pmax = $_POST["Pmax"];
+            $End_of_circulation = $_POST["End_of_circulation"];
+            $mileage = $_POST["mileage"];
+            $buying_price = $_POST["buying_price"];
+            $Car_Image = $_POST["Car_Image"];
 
-            $sql = "INSERT INTO  catigorys (name,quantity,Price,Category,ImgCategory) VALUES (:NAME, :QUANTITY, :PRICE , :CATEGORY, :LINK)";
+            // $Car_Image = $_FILES['Car_Image']['tmp_name'];
+            //     $traget = "les images/" . $_FILES['Car_Image']['name'];
+            //     move_uploaded_file($Car_Image, $traget);
+
+            $sql = "INSERT INTO  cars (Registration_Number,mark,Date_Of_Purchase,Car_Color,Price_Min,Price_Max,End_Of_Circulation,Mileage,Buying_Price,CarImage) VALUES (:registration_number, :mark, :date_of_purchase , :color, :Pmin, :Pmax, :End_of_circulation, :mileage, :buying_price, :Car_Image)";
 
             $pdor = $pdo->prepare($sql);
 
-            $pdoe = $pdor->execute(array(":NAME" => $NAME, ":CATEGORY" => $CATEGORY, ":QUANTITY" => $QUANTITY, ":PRICE" => $PRICE, ":LINK" => $LINK));
+            $pdoe = $pdor->execute(array(":registration_number" => $registration_number, ":mark" => $mark, ":date_of_purchase" => $date_of_purchase, ":color" => $color, ":Pmin" => $Pmin, ":Pmax" => $Pmax, ":End_of_circulation" => $End_of_circulation, ":mileage" => $mileage, ":buying_price" => $buying_price, ":Car_Image" => $Car_Image));
             if ($pdoe) {
-                header("location:category.php");
+                header("location:Cars.php");
             } else {
                 echo "Data not insert";
             }
         }
 
-        ?> -->
+        ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,55 +52,55 @@
                 <h4 class="col-12 text-center mb-3 mt-1 textcolor">Add Car</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter registration number" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="registration_number" placeholder="Enter registration number" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="mark" placeholder="Enter Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">date of purchase </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter date of purchase" type="date">
+                    <input class="form-control" aria-describedby="emailHelp" name="date_of_purchase" placeholder="Enter date of purchase" type="date">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Color</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter Color" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="color" placeholder="Enter Color" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">Price Min </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter Price Min " type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Pmin" placeholder="Enter Price Min " type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Price Max</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter Price Max" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Pmax" placeholder="Enter Price Max" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">End of circulation </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter End of circulation " type="date">
+                    <input class="form-control" aria-describedby="emailHelp" name="End_of_circulation" placeholder="Enter End of circulation " type="date">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">mileage</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter mileage" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="mileage" placeholder="Enter mileage" type="text">
                 </div>
                 <div class="form-group col-12">
                     <label for="">Buying price </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="password" placeholder="Enter Buying price " type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="buying_price" placeholder="Enter Buying price " type="text">
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="password" placeholder="Enter Car Image" type="file">
+                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="text">
                 </div>
 
 
                 <div class="col-12">
-                    <a href=""><button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button></a>
+                    <button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button>
                 </div>
         </div>
         </form>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2021 at 05:09 PM
+-- Generation Time: Jul 06, 2021 at 05:50 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -45,10 +45,14 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`Registration_Number`, `Date_Of_Purchase`, `Buying_Price`, `Mark`, `End_Of_Circulation`, `Price_Max`, `Price_Min`, `CarImage`, `Car_Color`, `Mileage`) VALUES
-('A40/000/13445', '2015-12-06', ' 120 000 DH', 'DACIA', '2020-12-06', '300 DH', '250 DH', 'https://o.remove.bg/downloads/73661427-d8af-4859-b25d-a3c02a66d781/trzV2YbyLO3hCmEH9WlhfXwE8bKcun-removebg-preview.png', 'Blue', '12 000KM'),
-('f121/342/34', '2016-02-18', ' 120 000 DH', 'ford', '2021-02-18', '300 DH', '250 DH', 'https://o.remove.bg/downloads/2ee47c92-1534-48b8-90c9-fccd405f5400/kisspng-2014-ford-fiesta-2018-ford-fiesta-car-2014-ford-fo-fiesta-5abe3bd724c821.0099872615224165991507-removebg-preview.png', 'White', '12 000KM'),
-('G12/33546', '2015-03-11', ' 120 000 DH', 'DACIA', '2020-03-11', '300 DH', '250 DH', 'https://o.remove.bg/downloads/2ac3c4e1-28cf-44c2-9d05-b55a0917f157/png-clipart-automobile-dacia-car-dacia-logan-renault-car-compact-car-car-removebg-preview.png', 'Red', '1 000KM'),
-('xx0127346', '2017-04-05', ' 120 000 DH', 'ford', '2022-04-05', '300 DH', '250 DH', 'https://o.remove.bg/downloads/82703e23-bc46-426f-ac3e-08b24a55ae9c/16-165833_2017-ford-fiesta-hatchback-alfa-romeo-stelvio-2018-removebg-preview.png', 'black', '1 000KM');
+('A40/000/13', '2020-01-01', '150 000 DH', 'Peugeot 208', '2025-01-02', '400 DH', '300 DH', 'image/peugeot-208_Yellow.png', 'Yellow', '0KM'),
+('A40/000/1300', '2018-01-01', '140 000 DH', 'DACIA', '2023-01-01', '300 DH', '250 DH', 'image/Dacia_Brown.png', 'Brown', '1 000KM'),
+('A40/000/1344', '2015-01-01', ' 120 000 DH', 'ford', '2020-01-01', '300 DH', '250 DH', 'image/FordFiesta_Blue.png', 'Blue', '12 000KM'),
+('A40/000/13442', '2014-01-01', ' 120 000 DH', 'DACIA', '2019-01-01', '300 DH', '250 DH', 'image/Dacia_White.png', 'White', '1 000KM'),
+('A40/000/134423', '2016-01-01', '140 000 DH', 'Renault Clio4', '2021-01-01', '300 DH', '300 DH', 'image/Renault-Whitr.png', 'White', '0KM'),
+('A40/000/13445', '2021-07-10', ' 120 000 DH', 'ford', '2021-07-10', '300 DH', '250 DH', 'image/kisspng-2014-ford-fiesta-2018-ford-fiesta-car-2014-ford-fo-fiesta-5abe3bd724c821.0099872615224165991507-removebg-preview.png', 'White', '12 000KM'),
+('A40/000/1344522', '2019-01-01', '140 000 DH', 'Peugeot 208', '2024-01-01', '400 DH', '350 DH', 'image/peugeot-208_grey.png', 'Grey', '0KM'),
+('G12/33546', '2017-01-01', '140 000 DH', 'Renault Clio4', '2022-01-01', '300 DH', '250 DH', 'image/clio-Red.png', 'Red', '1 000KM');
 
 -- --------------------------------------------------------
 
@@ -116,13 +120,6 @@ CREATE TABLE `reservation` (
   `Price_Total` varchar(250) DEFAULT NULL,
   `Rigestration_Number` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`Id_Res`, `First_Name`, `Last_Name`, `Phone`, `CIN`, `Mark`, `Date_Start`, `Date_End`, `Car_Image`, `Price_Total`, `Rigestration_Number`) VALUES
-(1, 'abderahman', 'zahmidi', 633997891, 'KB543365', 'DACIA', '2021-07-29 12:43:00', '2021-07-30 12:43:00', 'https://o.remove.bg/downloads/73661427-d8af-4859-b25d-a3c02a66d781/trzV2YbyLO3hCmEH9WlhfXwE8bKcun-removebg-preview.png', '1000DH', 'A40/000/13445');
 
 -- --------------------------------------------------------
 
@@ -210,7 +207,7 @@ ALTER TABLE `insurance`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `visit_tech`

@@ -1,34 +1,32 @@
 <?php
-        include "connect.php";
-        if (isset($_POST['submit'])) {
-            $registration_number = $_POST["registration_number"];
-            $mark = $_POST["mark"];
-            $date_of_purchase = $_POST["date_of_purchase"];
-            $color = $_POST["color"];
-            $Pmin = $_POST["Pmin"];
-            $Pmax = $_POST["Pmax"];
-            $End_of_circulation = $_POST["End_of_circulation"];
-            $mileage = $_POST["mileage"];
-            $buying_price = $_POST["buying_price"];
-            $Car_Image = $_POST["Car_Image"];
+include "connect.php";
+if (isset($_POST['submit'])) {
+    $registration_number = $_POST["registration_number"];
+    $mark = $_POST["mark"];
+    $date_of_purchase = $_POST["date_of_purchase"];
+    $color = $_POST["color"];
+    $Pmin = $_POST["Pmin"];
+    $Pmax = $_POST["Pmax"];
+    $End_of_circulation = $_POST["End_of_circulation"];
+    $mileage = $_POST["mileage"];
+    $buying_price = $_POST["buying_price"];
+    $Car_Image = $_FILES['Car_Image']['tmp_name'];
+    $traget = "image/" . $_FILES['Car_Image']['name'];
+    move_uploaded_file($Car_Image, $traget);
 
-            // $Car_Image = $_FILES['Car_Image']['tmp_name'];
-            //     $traget = "les images/" . $_FILES['Car_Image']['name'];
-            //     move_uploaded_file($Car_Image, $traget);
+    $sql = "INSERT INTO  cars (Registration_Number,mark,Date_Of_Purchase,Car_Color,Price_Min,Price_Max,End_Of_Circulation,Mileage,Buying_Price,CarImage) VALUES (:registration_number, :mark, :date_of_purchase , :color, :Pmin, :Pmax, :End_of_circulation, :mileage, :buying_price, :traget)";
 
-            $sql = "INSERT INTO  cars (Registration_Number,mark,Date_Of_Purchase,Car_Color,Price_Min,Price_Max,End_Of_Circulation,Mileage,Buying_Price,CarImage) VALUES (:registration_number, :mark, :date_of_purchase , :color, :Pmin, :Pmax, :End_of_circulation, :mileage, :buying_price, :Car_Image)";
+    $pdor = $pdo->prepare($sql);
 
-            $pdor = $pdo->prepare($sql);
+    $pdoe = $pdor->execute(array(":registration_number" => $registration_number, ":mark" => $mark, ":date_of_purchase" => $date_of_purchase, ":color" => $color, ":Pmin" => $Pmin, ":Pmax" => $Pmax, ":End_of_circulation" => $End_of_circulation, ":mileage" => $mileage, ":buying_price" => $buying_price, ":traget" => $traget));
+    if ($pdoe) {
+        header("location:Cars.php");
+    } else {
+        echo "Data not insert";
+    }
+}
 
-            $pdoe = $pdor->execute(array(":registration_number" => $registration_number, ":mark" => $mark, ":date_of_purchase" => $date_of_purchase, ":color" => $color, ":Pmin" => $Pmin, ":Pmax" => $Pmax, ":End_of_circulation" => $End_of_circulation, ":mileage" => $mileage, ":buying_price" => $buying_price, ":Car_Image" => $Car_Image));
-            if ($pdoe) {
-                header("location:Cars.php");
-            } else {
-                echo "Data not insert";
-            }
-        }
-
-        ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +46,7 @@
         <a href="Cars.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
         <div class="row  justify-content-center align-items-center">
 
-            <form action="" method="post" class="col-7 row form">
+            <form action="" method="post" class="col-7 row form" enctype="multipart/form-data">
                 <h4 class="col-12 text-center mb-3 mt-1 textcolor">Add Car</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
@@ -95,7 +93,7 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="file">
                 </div>
 
 

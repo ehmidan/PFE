@@ -153,11 +153,11 @@ a[aria-expanded='true'] {
           height: 11vh;
 }
 .cardstyle:hover {
-          z-index: 1.5;
+          z-index: 1;
           transform: scale(1.03);
           position: relative;
-          top: 10px;
-          left: 25px;
+          top: 3px;
+          left: 15px;
           box-shadow: 0 25px 50px rgb(52, 102, 131);
 }
 
@@ -173,6 +173,7 @@ a[aria-expanded='true'] {
 .card_body_Cars {
           background-color: #2f8cb4;
 }
+
 
 .imgRes {
           width: 100px;

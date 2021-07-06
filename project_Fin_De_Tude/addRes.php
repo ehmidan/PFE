@@ -9,18 +9,16 @@
             $Mark = $_POST["Mark"];
             $DStart = $_POST["DStart"];
             $DEnd = $_POST["DEnd"];
-            $Car_Image = $_POST["Car_Image"];
+            $Car_Image = $_FILES['Car_Image']['tmp_name'];
+            $traget = "image/" . $_FILES['Car_Image']['name'];
+            move_uploaded_file($Car_Image, $traget);
             $Ptotal = $_POST["Ptotal"];
-
-            // $Car_Image = $_FILES['Car_Image']['tmp_name'];
-            //     $traget = "les images/" . $_FILES['Car_Image']['name'];
-            //     move_uploaded_file($Car_Image, $traget);
 
             $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Rigestration_Number,Mark,Date_Start,Date_End,Car_Image,Price_Total) VALUES (:fname, :lname, :phone , :CIN, :registration_number, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal)";
 
             $pdor = $pdo->prepare($sql);
 
-            $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal));
+            $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $traget, ":Ptotal" => $Ptotal));
             if ($pdoe) {
                 header("location:reservation.php");
             } else {
@@ -28,6 +26,12 @@
             }
         }
 
+        
+        if( $get = $_GET['id_Car']){
+            $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number ='$get'");
+            $Get_Car->execute();
+            $Car_Info = $Get_Car->fetch();
+        }
         ?>
 
 <!DOCTYPE html>
@@ -48,7 +52,7 @@
         <a href="reservation.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
         <div class="row  justify-content-center align-items-center">
 
-            <form action="" method="post" class="col-7 row form">
+            <form action="" method="post" class="col-7 row form" enctype="multipart/form-data">
                 <h4 class="col-12 text-center mb-3 mt-1 textcolor">Client Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">First Name</label>
@@ -73,12 +77,12 @@
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="registration_number" placeholder="Enter registration number" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="registration_number" placeholder="Enter registration number" type="text" value="<?= $Car_Info["Registration_Number"] ?>">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="Mark" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Mark" placeholder="Enter the Mark" type="text" value="<?= $Car_Info["Mark"] ?>">
                 </div>
 
                 <div class="form-group col-6">
@@ -92,7 +96,7 @@
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" placeholder="Enter Car Image" type="file" value="<?= $Car_Info["CarImage"] ?>">
                 </div>
 
                 <div class="form-group col-12">

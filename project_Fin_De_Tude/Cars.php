@@ -52,11 +52,14 @@
 
             ?>
 
-                <div class="card col-lg-3 col-12  mt-3" style="width: 18rem;">
-                    <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 14rem;">
+                <div class="card col-lg-4 col-12  mt-3" style="width:18rem;">
+                    <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 20rem;">
                     <div class="card-body card_body_Cars">
                         <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
+                        
                         <a href="CarShowMore.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore">Show More</a>
+                        <a href="AddRes.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success">Reservation</a>
+                        <a href="AddRes.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 </div>
             <?php } ?>

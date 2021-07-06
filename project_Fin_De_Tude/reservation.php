@@ -46,7 +46,7 @@
       </nav>
       <table class="table table-gray table-hover">
         <thead>
-    
+
           <tr>
             <th>Name</th>
             <th>Phone</th>
@@ -62,27 +62,27 @@
           </tr>
         </thead>
         <tbody>
-        <?php
-            include "connect.php";
-            $Get_res = $pdo->prepare("SELECT * FROM reservation");
-            $Get_res->execute();
+          <?php
+          include "connect.php";
+          $Get_res = $pdo->prepare("SELECT * FROM reservation");
+          $Get_res->execute();
 
-            while ($res = $Get_res->fetch()) {
+          while ($res = $Get_res->fetch()) {
 
-            ?>
-          <tr>
-            <td><?= $res["First_Name"]?> <?= $res["Last_Name"]?></td>
-            <td><?= $res["Phone"]?></td>
-            <td><?= $res["Mark"]?></td>
-            <td><?= $res["Rigestration_Number"]?></td>
-            <td><?= $res["Date_Start"]?></td>
-            <td><?= $res["Date_End"]?></td>
-            <td><?= $res["Price_Total"]?></td>
-            <td><img src="<?= $res["Car_Image"]?>" class="imgRes" alt=""></td>
-            <td><button class="btn btn-success">Edite</button></td>
-            <td><button class="btn btn-outline-danger ml-2">Delet</button></td>
-          </tr>
-<?php } ?>
+          ?>
+            <tr>
+              <td><?= $res["First_Name"] ?> <?= $res["Last_Name"] ?></td>
+              <td><?= $res["Phone"] ?></td>
+              <td><?= $res["Mark"] ?></td>
+              <td><?= $res["Rigestration_Number"] ?></td>
+              <td><?= $res["Date_Start"] ?></td>
+              <td><?= $res["Date_End"] ?></td>
+              <td><?= $res["Price_Total"] ?></td>
+              <td><img src="<?= $res["Car_Image"] ?>" class="imgRes" alt=""></td>
+              <td><button class="btn btn-success">Edit</button></td>
+              <td><a onclick="return confirm('are you sure you want delete this product')" href="./DeleteCar.php?id=<?= $res["Id_Res"]?>"><button class="btn btn-outline-danger ml-2">Delete</button></a></td>
+            </tr>
+          <?php } ?>
         </tbody>
       </table>
 

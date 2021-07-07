@@ -3,11 +3,11 @@ include "connect.php";
 
 $id = ($_GET['id']);
 if ($id) {
-    $stmt = "DELETE FROM cars WHERE Registration_Number=:id";
+    $stmt = "DELETE FROM reservation WHERE Id_Res=:id";
     $pdor = $pdo->prepare($stmt);
     $pdoe = $pdor->execute(array(":id" => $id));
     if ($pdor) {
-        header("location:./Cars.php");
+        header("location:./reservation.php");
     }
 } else {
    echo "erour";

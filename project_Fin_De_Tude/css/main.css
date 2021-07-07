@@ -161,6 +161,19 @@ a[aria-expanded='true'] {
           box-shadow: 0 25px 50px rgb(52, 102, 131);
 }
 
+.baack {
+    color: white;
+    background-color: #2f8cb4;
+    border: 1px solid #2f8cb4;
+}
+
+.baack:hover {
+    color: #2f8cb4;
+    background-color: white;
+}
+
+
+
 .btn_car_showmore {
           color: #2f8cb4;
           background-color: white;

@@ -27,7 +27,7 @@
         }
 
         
-        if( $get = $_GET['id_Car']){
+        if($get = $_GET['id_Car']){
             $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number ='$get'");
             $Get_Car->execute();
             $Car_Info = $Get_Car->fetch();

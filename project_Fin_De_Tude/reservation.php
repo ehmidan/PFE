@@ -80,7 +80,7 @@
               <td><?= $res["Price_Total"] ?></td>
               <td><img src="<?= $res["Car_Image"] ?>" class="imgRes" alt=""></td>
               <td><button class="btn btn-success">Edit</button></td>
-              <td><a onclick="return confirm('are you sure you want delete this product')" href="./DeleteCar.php?id=<?= $res["Id_Res"]?>"><button class="btn btn-outline-danger ml-2">Delete</button></a></td>
+              <td><a onclick="return confirm('are you sure you want delete this Reservation')" href="./DeleteRes.php?id=<?= $res["Id_Res"]?>"><button class="btn btn-outline-danger ml-2">Delete</button></a></td>
             </tr>
           <?php } ?>
         </tbody>

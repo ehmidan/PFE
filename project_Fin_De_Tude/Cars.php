@@ -45,7 +45,7 @@
             <div class="row justufy-content-center">
             <?php
             include "connect.php";
-            $Get_Cars = $pdo->prepare("SELECT * FROM cars");
+            $Get_Cars = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
             $Get_Cars->execute();
 
             while ($Car = $Get_Cars->fetch()) {
@@ -54,11 +54,11 @@
 
                 <div class="card col-lg-3 col-12  mt-3 p-0" style="width:20rem;">
                     <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 20rem;">
-                    <div class="card-body card_body_Cars">
+                    <div class="card-body card_body_Cars p-3">
                         <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
                         
                         <a href="CarShowMore.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore">Show More</a>
-                        <a href="AddRes.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success">Reservation</a>
+                        <a href="addResForCar.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success">Reservation</a>
                         <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 </div>

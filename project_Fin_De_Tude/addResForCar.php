@@ -1,35 +1,37 @@
 <?php
-
 include "connect.php";
-
 if (isset($_POST['submit'])) {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
     $phone = $_POST["phone"];
     $CIN = $_POST["CIN"];
+    $registration_number = $_POST["registration_number"];
     $Mark = $_POST["Mark"];
     $DStart = $_POST["DStart"];
     $DEnd = $_POST["DEnd"];
-    $Car_Image = $_POST['Car_Image'] . ".png";
+    $Car_Image = $_POST['Car_Image'];
     $Ptotal = $_POST["Ptotal"];
-    $registration_number = explode(";", $_POST["registration_number"])[1];
+  
 
-
-    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Mark,Date_Start,Date_End,Car_Image,Price_Total,Rigestration_Number) VALUES (:fname, :lname, :phone , :CIN, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal, :regestration_number)";
+    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Rigestration_Number,Mark,Date_Start,Date_End,Car_Image,Price_Total) VALUES (:fname, :lname, :phone , :CIN, :registration_number, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal)";
 
     $pdor = $pdo->prepare($sql);
 
-    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":regestration_number" => $registration_number));
+    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal));
     if ($pdoe) {
         header("location:reservation.php");
     } else {
         echo "Data not insert";
     }
 }
-
-
+if ($get = $_GET['id_Car']) {
+    $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number = '$get'");
+    $Get_Car->execute();
+    $Car_Info = $Get_Car->fetch();
+}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,23 +75,15 @@ if (isset($_POST['submit'])) {
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">registration number</label>
-                    <select class="form-control" name="registration_number" onchange="getSelectedValue()">
-                        <?php
-                        $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
-                        $Get_Car->execute();
-                        while ($Car_Info = $Get_Car->fetch()) {
-                        ?>
-                            <option value=<?= $Car_Info["Mark"] . "." . $Car_Info["CarImage"] . ";" . $Car_Info["Registration_Number"] ?>><?= $Car_Info["Registration_Number"] ?>
-                            </option>
-                        <?php } ?>
-
+                    <select class="form-control" name="registration_number">
+                        <option><?= $Car_Info["Registration_Number"] ?></option>
                     </select>
                 </div>
 
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" id="markk" name="Mark" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" id="mark" value="<?= $Car_Info["Mark"] ?>" placeholder="Enter the Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">
@@ -103,7 +97,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="form-group col-12">
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image" placeholder="Enter Car Image" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Car_Image" value="<?= $Car_Info["CarImage"] ?>" placeholder="Enter Car Image" type="text">
                 </div>
 
                 <div class="form-group col-12">

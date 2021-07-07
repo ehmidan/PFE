@@ -64,7 +64,7 @@
           </div>
         </a>
 
-      <a href="" class="col-lg-6 col-12 ">
+      <a href="reservation.php" class="col-lg-6 col-12 ">
           <div class="col-lg-9  row align-items-center cardstyle cardstyle3  mr-4">
             <div class="col-lg-3 col-2 carIcon3 "></div>
             <div class="col-lg-8 col-9 ">

@@ -7,7 +7,7 @@ if ($id) {
     $pdor = $pdo->prepare($stmt);
     $pdoe = $pdor->execute(array(":id" => $id));
     if ($pdor) {
-        header("location:./Cars.php");
+        header("location:./Available_Cars.php");
     }
 } else {
    echo "erour";

@@ -1,33 +1,10 @@
 <?php
-
 include "connect.php";
 
-if (isset($_POST['submit'])) {
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $phone = $_POST["phone"];
-    $CIN = $_POST["CIN"];
-    $Mark = $_POST["Mark"];
-    $DStart = $_POST["DStart"];
-    $DEnd = $_POST["DEnd"];
-    $Car_Image = $_POST['Car_Image'] . ".png";
-    $Ptotal = $_POST["Ptotal"];
-    $registration_number = explode(";", $_POST["registration_number"])[1];
-
-
-    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Mark,Date_Start,Date_End,Car_Image,Price_Total,Rigestration_Number) VALUES (:fname, :lname, :phone , :CIN, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal, :regestration_number)";
-
-    $pdor = $pdo->prepare($sql);
-
-    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":regestration_number" => $registration_number));
-    if ($pdoe) {
-        header("location:reservation.php");
-    } else {
-        echo "Data not insert";
-    }
-}
-
-
+$get = $_GET['id'];
+$reqCat = $pdo->prepare("SELECT * FROM reservation WHERE Id_Res='$get'");
+$reqCat->execute();
+$Res = $reqCat->fetch();
 
 ?>
 <!DOCTYPE html>
@@ -52,12 +29,12 @@ if (isset($_POST['submit'])) {
                 <h4 class="col-12 text-center mb-3 mt-1 textcolor">Client Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">First Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" placeholder="Enter your first name" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="fname" value=<?= $Res["First_Name"] ?> placeholder="Enter your first name" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">last Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" placeholder="Enter your last name" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="lname" value=<?= $Res["First_Name"] ?> placeholder="Enter your last name" type="text">
                 </div>
 
                 <div class="form-group col-6">

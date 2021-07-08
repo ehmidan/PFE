@@ -1,0 +1,208 @@
+body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    background: #fafafa;
+}
+
+.logo{
+    
+    height: 120px;
+background-image: url(../image/car-logo.png);
+background-position: center;
+background-size: cover;
+
+}
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+/* Side Bar*/
+.wrapper {
+    display: flex;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #0c6489;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  
+    background: #2f8cb4;
+}
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #2f8cb4;
+    margin-top: 50px;
+}
+
+#sidebar ul li a {
+    padding: 15px;
+    font-size: 1.1em;
+    display: block;
+    margin-top: 10px;
+}
+#sidebar ul li a:hover {
+    color: #0c6489;
+    background: #fff;
+}
+#sidebar ul li.active > a,
+a[aria-expanded='true'] {
+    color: #fff;
+    background: #2f8cb4;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3;
+}
+@media (max-width: 768px) {
+    #sidebar {
+              margin-left: -250px;
+    }
+    #sidebar.active {
+              margin-left: 0;
+    }
+    #sidebarCollapse .toggele {
+              display: none;
+    }
+}
+.toggeles {
+    color: white;
+    background-color: #2f8cb4;
+}
+.toggeles:hover {
+    background-color: #0c6489;
+}
+.admin_text {
+    color: #2f8cb4;
+}
+
+.cardstyle {
+    width: 80%;
+    height: 100px;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+.cardstyle1 {
+    background-image: linear-gradient(
+              to right,
+              #0c6489 25%,
+              #7cbdda -75%
+    );
+    margin-top: 80px;
+}
+.carIcon {
+    background-image: url(../image/caricon.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5vw 6vh;
+    height: 10vh;
+}
+
+.cardstyle2 {
+    background-image: linear-gradient(
+              to right,
+              rgb(177, 54, 54) 25%,
+              rgb(223, 127, 120) -75%
+    );
+    margin-top: 80px;
+}
+.carIcon2 {
+    background-image: url(../image/Group\ 2.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5vw 10vh;
+    height: 11vh;
+}
+.cardstyle3 {
+    background-image: linear-gradient(
+              to right,
+              #0c8912 25%,
+              #89e08d -75%
+    );
+    margin-top: 80px;
+}
+.carIcon3 {
+    background-image: url(../image/Reservationicon.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5vw 8vh;
+    height: 11vh;
+}
+.cardstyle4 {
+    background-image: linear-gradient(
+              to right,
+              rgb(139, 33, 201) 25%,
+              rgb(189, 129, 212) -75%
+    );
+    margin-top: 80px;
+}
+.carIcon4 {
+    background-image: url(../image/expenditureicon.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 5vw 8vh;
+    height: 11vh;
+}
+.cardstyle:hover {
+    z-index: 1;
+    transform: scale(1.03);
+    position: relative;
+    top: 3px;
+    left: 15px;
+    box-shadow: 0 25px 50px rgb(52, 102, 131);
+}
+
+.baack {
+color: white;
+background-color: #2f8cb4;
+border: 1px solid #2f8cb4;
+}
+
+.baack:hover {
+color: #2f8cb4;
+background-color: white;
+}
+
+
+
+.btn_car_showmore {
+    color: #2f8cb4;
+    background-color: white;
+    border: 1px solid #ffffff;
+}
+.btn_car_showmore:hover {
+    color: #ffffff;
+    background-color: #2f8cb4;
+}
+.card_body_Cars {
+    background-color: #2f8cb4;
+}
+
+
+.imgRes {
+    width: 100px;
+    height: 60px;
+}
+
+
+
+
+
+

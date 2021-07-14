@@ -6,6 +6,29 @@ $reqCat = $pdo->prepare("SELECT * FROM reservation WHERE Id_Res='$get'");
 $reqCat->execute();
 $Res = $reqCat->fetch();
 
+if (isset($_POST["submit"])){
+    $fname = $_POST["fname"];
+    $lname = $_POST["lname"];
+    $phone = $_POST["phone"];
+    $CIN = $_POST["CIN"];
+    $Mark = $_POST["Mark"];
+    $DStart = $_POST["DStart"];
+    $DEnd = $_POST["DEnd"];
+    $Car_Image = $_POST['Car_Image'] . ".png";
+    $Ptotal = $_POST["Ptotal"];
+    $registration_number = explode(";", $_POST["registration_number"])[1];
+
+    $stmt= "UPDATE reservation SET First_Name=:fname , Last_Name=:lname , Phone=:phone , CIN=:CIN , Mark=:Mark , Date_Start=:DStart , Date_End=:DEnd , Car_Image=:Car_Image , Price_Total=:Ptotal , Rigestration_Number=:Rnumber WHERE Id_Res=$get"; 
+    $pdor = $pdo->prepare($stmt);
+    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":Rnumber" => $registration_number));
+    if($pdoe){
+        header("location:reservation.php");
+        echo '<script> alert ("Data Updated")</script>'; 
+    }else{
+        {echo '<script> alert ("Data Not Updated")</script>';} 
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,17 +57,17 @@ $Res = $reqCat->fetch();
 
                 <div class="form-group col-6">
                     <label for="">last Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" value=<?= $Res["First_Name"] ?> placeholder="Enter your last name" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="lname" value=<?= $Res["Last_Name"] ?> placeholder="Enter your last name" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Phone</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" placeholder="Enter your phone" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="phone" value=<?= $Res["Phone"] ?> placeholder="Enter your phone" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">CIN</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="CIN" placeholder="Enter your CIN" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="CIN" value=<?= $Res["CIN"] ?> placeholder="Enter your CIN" type="text">
                 </div>
                 <hr>
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
@@ -66,26 +89,26 @@ $Res = $reqCat->fetch();
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" id="markk" name="Mark" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" id="markk" name="Mark" value=<?= $Res["Mark"] ?> placeholder="Enter the Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Date Start </label>
-                    <input class="form-control" aria-describedby="emailHelp" name="DStart" placeholder="Enter Date Start" type="datetime-local">
+                    <input class="form-control" aria-describedby="emailHelp" name="DStart" value=<?= $Res["Date_Start"] ?> placeholder="Enter Date Start" type="datetime-local">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Date End</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="DEnd" placeholder="Enter Date End" type="datetime-local">
+                    <input class="form-control" aria-describedby="emailHelp" name="DEnd"  value=<?= $Res["Date_End"] ?> placeholder="Enter Date End" type="datetime-local">
                 </div>
-                <div class="form-group col-12">
+                <div class="form-group col-12" hidden>
                     <label for="">Car Image</label>
-                    <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image" placeholder="Enter Car Image" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image"  value=<?= $Res["Car_Image"] ?> placeholder="Enter Car Image" type="text">
                 </div>
 
                 <div class="form-group col-12">
                     <label for="">Price Total</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="Ptotal" placeholder="Enter Price Total" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="Ptotal"  value=<?= $Res["Price_Total"] ?> placeholder="Enter Price Total" type="text">
                 </div>
                 <div class="col-12">
                     <button type="submit" name="submit" class="btn col-12 button_add_res mb-3 mt-2">Add</button>

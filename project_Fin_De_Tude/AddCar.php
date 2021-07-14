@@ -5,6 +5,8 @@ if (isset($_POST['submit'])) {
     $mark = $_POST["mark"];
     $date_of_purchase = $_POST["date_of_purchase"];
     $color = $_POST["color"];
+    $Gearbox_Type = $_POST["Gearbox_Type"];
+    $Fual_Type = $_POST["Fual_Type"];
     $Pmin = $_POST["Pmin"];
     $Pmax = $_POST["Pmax"];
     $End_of_circulation = $_POST["End_of_circulation"];
@@ -14,11 +16,11 @@ if (isset($_POST['submit'])) {
     $traget = "image/" . $_FILES['Car_Image']['name'];
     move_uploaded_file($Car_Image, $traget);
 
-    $sql = "INSERT INTO  cars (Registration_Number,mark,Date_Of_Purchase,Car_Color,Price_Min,Price_Max,End_Of_Circulation,Mileage,Buying_Price,CarImage) VALUES (:registration_number, :mark, :date_of_purchase , :color, :Pmin, :Pmax, :End_of_circulation, :mileage, :buying_price, :traget)";
+    $sql = "INSERT INTO  cars (Registration_Number,mark,Date_Of_Purchase,Car_Color,Gearbox_Type,Fual_Type,Price_Min,Price_Max,End_Of_Circulation,Mileage,Buying_Price,CarImage) VALUES (:registration_number, :mark, :date_of_purchase , :color, :Gearbox_Type, :Fual_Type, :Pmin, :Pmax, :End_of_circulation, :mileage, :buying_price, :traget)";
 
     $pdor = $pdo->prepare($sql);
 
-    $pdoe = $pdor->execute(array(":registration_number" => $registration_number, ":mark" => $mark, ":date_of_purchase" => $date_of_purchase, ":color" => $color, ":Pmin" => $Pmin, ":Pmax" => $Pmax, ":End_of_circulation" => $End_of_circulation, ":mileage" => $mileage, ":buying_price" => $buying_price, ":traget" => $traget));
+    $pdoe = $pdor->execute(array(":registration_number" => $registration_number, ":mark" => $mark, ":date_of_purchase" => $date_of_purchase, ":color" => $color, ":Gearbox_Type" => $Gearbox_Type, ":Fual_Type" => $Fual_Type, ":Pmin" => $Pmin, ":Pmax" => $Pmax, ":End_of_circulation" => $End_of_circulation, ":mileage" => $mileage, ":buying_price" => $buying_price, ":traget" => $traget));
     if ($pdoe) {
         header("location:Cars.php");
     } else {
@@ -66,6 +68,20 @@ if (isset($_POST['submit'])) {
                 <div class="form-group col-6">
                     <label for="">Color</label>
                     <input class="form-control" aria-describedby="emailHelp" name="color" placeholder="Enter Color" type="text">
+                </div>
+                <div class="form-group col-6">
+                    <label for="">Gearbox Type</label>
+                    <select class="form-control" name="Gearbox_Type">
+                            <option >automatic</option>
+                            <option >manual lever </option>
+                    </select>
+                </div>
+                <div class="form-group col-6">
+                    <label for="">Fual Type</label>
+                    <select class="form-control" name="Fual_Type">
+                            <option >Gasoline</option>
+                            <option >diesel </option>
+                    </select>
                 </div>
 
                 <div class="form-group col-6">

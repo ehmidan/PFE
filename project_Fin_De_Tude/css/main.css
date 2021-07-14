@@ -1,12 +1,12 @@
 body {
     font-family: 'Oswald', sans-serif;
     font-weight: 300;
-    background: #fafafa;
+    background: white;
 }
 
 .logo{
     
-    height: 120px;
+height: 120px;
 background-image: url(../image/car-logo.png);
 background-position: center;
 background-size: cover;
@@ -21,6 +21,7 @@ a:focus {
 }
 
 /* Side Bar*/
+
 .wrapper {
     display: flex;
     text-decoration: none;
@@ -28,15 +29,15 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 270px;
+    max-width: 270px;
     background: #0c6489;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -270px;
 }
 
 #sidebar .sidebar-header {
@@ -81,6 +82,14 @@ a[aria-expanded='true'] {
     #sidebarCollapse .toggele {
               display: none;
     }
+    .dashoardImgdiv{
+        display: none;
+    }
+    .cardstyle{
+        margin-top: 20px;
+    }
+
+
 }
 .toggeles {
     color: white;
@@ -98,15 +107,56 @@ a[aria-expanded='true'] {
     height: 100px;
     margin-left: 20px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 .cardstyle1 {
-    background-image: linear-gradient(
-              to right,
-              #0c6489 25%,
-              #7cbdda -75%
-    );
-    margin-top: 80px;
+    background-color: #7cbdda;
+    border: 3px solid #0c6489;
+    transition: ease-out 0.3s;
+    outline: none;
+    position: relative;
+    z-index: 1;
+
 }
+.cardstyle1:hover,.cardstyle2:hover,.cardstyle3:hover,.cardstyle4:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);  
+ }
+ .cardstyle1::before,.cardstyle2::before,.cardstyle3::before,.cardstyle4::before {
+     transition: 0.5s all ease;
+     position: absolute;
+     top: 0;
+     left: 50%;
+     right: 50%;
+     bottom: 0;
+     opacity: 0;
+     content: "";
+     border-radius: 17px;
+ }
+ .cardstyle1::before{
+     background-color:#0c6489 ;
+ } 
+ .cardstyle2::before{
+    background-color:rgb(177, 54, 54) ;
+}
+.cardstyle3::before{
+    background-color:#0c8912 ;
+}
+.cardstyle4::before{
+    background-color:rgb(139, 33, 201) ;
+}
+
+
+ .cardstyle1:hover::before,.cardstyle2:hover::before,.cardstyle3:hover::before,.cardstyle4:hover::before {
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+   
+   
+}
+
 .carIcon {
     background-image: url(../image/caricon.png);
     background-repeat: no-repeat;
@@ -116,13 +166,13 @@ a[aria-expanded='true'] {
 }
 
 .cardstyle2 {
-    background-image: linear-gradient(
-              to right,
-              rgb(177, 54, 54) 25%,
-              rgb(223, 127, 120) -75%
-    );
-    margin-top: 80px;
+    background-color:rgb(223, 127, 120);
+    border: 3px solid rgb(177, 54, 54);
+    position: relative;
+    z-index: 1;
+    
 }
+
 .carIcon2 {
     background-image: url(../image/Group\ 2.png);
     background-repeat: no-repeat;
@@ -131,12 +181,10 @@ a[aria-expanded='true'] {
     height: 11vh;
 }
 .cardstyle3 {
-    background-image: linear-gradient(
-              to right,
-              #0c8912 25%,
-              #89e08d -75%
-    );
-    margin-top: 80px;
+    background-color:#89e08d;
+    border: 3px solid #0c8912;
+    position: relative;
+    z-index: 1;
 }
 .carIcon3 {
     background-image: url(../image/Reservationicon.png);
@@ -146,12 +194,10 @@ a[aria-expanded='true'] {
     height: 11vh;
 }
 .cardstyle4 {
-    background-image: linear-gradient(
-              to right,
-              rgb(139, 33, 201) 25%,
-              rgb(189, 129, 212) -75%
-    );
-    margin-top: 80px;
+    background-color:rgb(189, 129, 212);
+    border: 3px solid rgb(139, 33, 201);
+    position: relative;
+    z-index: 1;
 }
 .carIcon4 {
     background-image: url(../image/expenditureicon.png);
@@ -160,14 +206,41 @@ a[aria-expanded='true'] {
     background-size: 5vw 8vh;
     height: 11vh;
 }
-.cardstyle:hover {
-    z-index: 1;
-    transform: scale(1.03);
-    position: relative;
-    top: 3px;
-    left: 15px;
-    box-shadow: 0 25px 50px rgb(52, 102, 131);
+
+
+svg{
+    width: 630px;
+    height: 350px;
+    margin-right: 100px;
+  
 }
+#RightWheel ,#LeftWheel{
+animation: Wheel 0.9s infinite linear;
+transform-origin: center;
+transform-box: fill-box;
+}
+
+#car{
+    animation: car 1s ease-in-out infinite alternate  ;
+}
+
+@keyframes Wheel{
+    from{
+    transform: rotateZ(0deg);
+    }
+    to{
+    transform: rotateZ(-360deg);
+    }
+}
+@keyframes car{
+    from{
+    transform: rotateX(0deg);
+    }
+    to{
+    transform: rotateX(20deg);
+    }
+}
+
 
 .baack {
 color: white;
@@ -194,6 +267,14 @@ background-color: white;
 .card_body_Cars {
     background-color: #2f8cb4;
 }
+.cardscarsAvailable{
+    margin-left: 100px;
+    margin-bottom: 20px;
+ }
+ .cardscars{
+    margin-left: 80px;
+  
+ }
 
 
 .imgRes {

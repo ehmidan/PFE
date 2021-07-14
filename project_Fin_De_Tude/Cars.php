@@ -5,43 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/main.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="wrapper">
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo"></div>
-            </div>
-    </div>
-    <ul class="lisst-unstyled components">
+<div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo"></div>
+      </div>
+      <ul class="lisst-unstyled components">
         <li>
-            <a href="Dashboard.php">Dashboard</a>
+          <a href="dashboard.php">Dashboard</a>
         </li>
         <li>
-            <a href="reservation.php">Reservation</a>
+          <a href="reservation.php">Reservation</a>
         </li>
         <li class="active">
-            <a href="Cars.php">Cars</a>
+          <a href="">Cars</a>
         </li>
         <li>
-            <a href="#">Client</a>
+          <a href="#">Client</a>
         </li>
-    </ul>
+      </ul>
     </nav>
+
+
     <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
-                    <span class="glyphicon glyphicon-arrow-left"></span>
-                    <span>toggle</span>
-                </button>
-            </div>
-            <h3 class="admin_text">Admin</h3>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light ">
+        <div class="container-fluid">
+          <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+            <span>toggle</span>
+          </button>
+        </div>
+        <h3 class="admin_text">Admin</h3>
+      </nav>
 
         <div class="row justufy-content-center">
             <?php
@@ -53,8 +55,8 @@
 
             ?>
 
-                <div class="card col-lg-3 col-12  mt-3 p-0" style="width:20rem;">
-                    <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 20rem;">
+                <div class="card col-lg-3 col-12  mt-3 p-0 cardscars " data-aos="fade-up" >
+                    <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 15rem;">
                     <div class="card-body card_body_Cars p-3">
                         <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
 
@@ -74,8 +76,10 @@
     <script src="./bootstrap/js/jquery-3.5.1.min.js"></script>
     <script src="./bootstrap/js/bootstrap.js"></script>
     <script src="./app.js"></script>
-
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
 </body>
 
 </html>

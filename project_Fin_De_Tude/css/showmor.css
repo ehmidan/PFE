@@ -1,3 +1,4 @@
+
 .back {
     color: white;
     background-color: #2f8cb4;
@@ -9,8 +10,8 @@
     background-color: white;
 }
 .imgShowMore {
-    height: 75vh;
-    width: 57vw;
+    height: 73vh;
+    width: 59vw;
 }
 @media (max-width: 320px) {
     .imgShowMore {
@@ -36,7 +37,7 @@ color: inherit;
               #0c6489 28%,
               #7cbdda -72%
     );
-    margin-top: 80px;
+    margin-top: 30px;
 }
 .carIcon {
     background-image: url(../image/generalinfo.png);
@@ -103,4 +104,33 @@ color: inherit;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 20px;
     color: #2f8cb4;
+}
+:root {
+    --gradient: linear-gradient(
+        45deg,
+        #0CEDE3,
+        #0CC4F7,
+        #0CC4F7,
+        #0075E0,
+        #0041FC
+    );
+}
+.bgshowmor{
+    margin-left: 45px;
+    width: 100%;
+    height: 700px;
+    background-image: var(--gradient);
+    border-bottom-left-radius: 400px;
+    animation: bg-animation 5s infinite alternate;
+    background-size: 2000px 1000px;
+
+}
+@keyframes bg-animation{
+    0%{
+        background-position:left;
+    }
+   
+    100%{
+        background-position:right;
+    }
 }

@@ -95,7 +95,7 @@ if ($get = $_GET['id_Car']) {
                     <label for="">Date End</label>
                     <input class="form-control" aria-describedby="emailHelp" name="DEnd" placeholder="Enter Date End" type="datetime-local">
                 </div>
-                <div class="form-group col-12">
+                <div class="form-group col-12" hidden>
                     <label for="">Car Image</label>
                     <input class="form-control" aria-describedby="emailHelp" name="Car_Image" value="<?= $Car_Info["CarImage"] ?>" placeholder="Enter Car Image" type="text">
                 </div>

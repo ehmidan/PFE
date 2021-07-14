@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2021 at 05:50 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jul 14, 2021 at 11:11 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,8 @@ CREATE TABLE `cars` (
   `Date_Of_Purchase` date DEFAULT NULL,
   `Buying_Price` varchar(11) DEFAULT NULL,
   `Mark` varchar(20) DEFAULT NULL,
+  `Gearbox_Type` text NOT NULL,
+  `Fual_Type` text NOT NULL,
   `End_Of_Circulation` date DEFAULT NULL,
   `Price_Max` varchar(20) DEFAULT NULL,
   `Price_Min` varchar(20) DEFAULT NULL,
@@ -44,15 +46,16 @@ CREATE TABLE `cars` (
 -- Dumping data for table `cars`
 --
 
-INSERT INTO `cars` (`Registration_Number`, `Date_Of_Purchase`, `Buying_Price`, `Mark`, `End_Of_Circulation`, `Price_Max`, `Price_Min`, `CarImage`, `Car_Color`, `Mileage`) VALUES
-('A40/000/13', '2020-01-01', '150 000 DH', 'Peugeot 208', '2025-01-02', '400 DH', '300 DH', 'image/peugeot-208_Yellow.png', 'Yellow', '0KM'),
-('A40/000/1300', '2018-01-01', '140 000 DH', 'DACIA', '2023-01-01', '300 DH', '250 DH', 'image/Dacia_Brown.png', 'Brown', '1 000KM'),
-('A40/000/1344', '2015-01-01', ' 120 000 DH', 'ford', '2020-01-01', '300 DH', '250 DH', 'image/FordFiesta_Blue.png', 'Blue', '12 000KM'),
-('A40/000/13442', '2014-01-01', ' 120 000 DH', 'DACIA', '2019-01-01', '300 DH', '250 DH', 'image/Dacia_White.png', 'White', '1 000KM'),
-('A40/000/134423', '2016-01-01', '140 000 DH', 'Renault Clio4', '2021-01-01', '300 DH', '300 DH', 'image/Renault-Whitr.png', 'White', '0KM'),
-('A40/000/13445', '2021-07-10', ' 120 000 DH', 'ford', '2021-07-10', '300 DH', '250 DH', 'image/kisspng-2014-ford-fiesta-2018-ford-fiesta-car-2014-ford-fo-fiesta-5abe3bd724c821.0099872615224165991507-removebg-preview.png', 'White', '12 000KM'),
-('A40/000/1344522', '2019-01-01', '140 000 DH', 'Peugeot 208', '2024-01-01', '400 DH', '350 DH', 'image/peugeot-208_grey.png', 'Grey', '0KM'),
-('G12/33546', '2017-01-01', '140 000 DH', 'Renault Clio4', '2022-01-01', '300 DH', '250 DH', 'image/clio-Red.png', 'Red', '1 000KM');
+INSERT INTO `cars` (`Registration_Number`, `Date_Of_Purchase`, `Buying_Price`, `Mark`, `Gearbox_Type`, `Fual_Type`, `End_Of_Circulation`, `Price_Max`, `Price_Min`, `CarImage`, `Car_Color`, `Mileage`) VALUES
+('f121/342/11', '2020-02-14', '270 000 DH', 'BMW', 'manual lever', 'Gasoline', '2024-02-14', '700 DH', '600 DH', 'image/kisspng-2017-bmw-m3-2018-bmw-m3-car-bmw-x6-bmw-m3-png-clipart-5a7a261ad5a4f9.1150222315179545868751.png', 'White', '1000 KM'),
+('f121/342/222', '2020-04-14', '250 000 DH', 'Audi A3', 'manual lever', 'diesel', '2024-07-14', '600DH', '500 DH', 'image/kisspng-audi-rs-6-audi-rs6-audi-a6-car-audi-5abf3cdcd2ceb1.7644250615224823968635.png', 'Red', '1000 KM'),
+('f121/342/32', '2019-06-14', '270 000 DH', 'BMW', 'automatic', 'diesel', '2021-07-15', '700 DH', '600 DH', 'image/kisspng-bmw-x6-car-bmw-x7-bmw-1-series-bmw-x6-png-clipart-5a777a0e376162.8385051215177794702269.png', '', '1000 KM'),
+('f121/342/33', '2019-03-14', '250 000 DH', 'Audi', 'automatic', 'diesel', '2024-06-14', '700 DH', '600 DH', 'image/kisspng-2015-audi-s5-audi-rs5-car-2016-audi-s5-5b6897f40b7685.157663721533581300047 (1).png', 'Black', '1000 KM'),
+('f121/342/34', '2020-02-14', '200 000 DH', 'Polo', 'automatic', 'diesel', '2025-02-14', '600DH', '500 DH', 'image/kisspng-car-volkswagen-polo-1-0-mpi-48kw-trendline-bmt-vol-vw-polo-5b16bb1055e220.0857038815282163363518.png', 'blue', '1000 KM'),
+('f121/342/3490', '2021-07-09', '1 000 000 D', 'Mercedes G Class', 'automatic', 'diesel', '2024-11-14', '1 500 DH', '1 200 DH', 'image/5a2192e194e886.5754760515121497296099.png', 'Black', '1000 KM'),
+('f121/342/35', '2021-02-14', '1 000 000 D', 'Mercedes G Class', 'automatic', 'diesel', '2021-07-15', '1 500 DH', '1 200 DH', 'image/5a34d330683f31.650681091513411376427.png', 'Black', '1000 KM'),
+('f121/342/39', '2019-06-14', '250 000 DH', 'Range-Rover', 'automatic', 'diesel', '2023-02-15', '1 500 DH', '1 200 DH', 'image/kisspng-2015-land-rover-range-rover-sport-2017-land-rover-land-rover-range-rover-blue-car-5a74884e776783.7279320115175865104891.png', 'blue', '1000 KM'),
+('f121/342/88', '2020-02-14', '270 000 DH', 'Mercedes S Class', 'automatic', 'Gasoline', '2024-06-14', '1 500 DH', '1 200 DH', 'image/kisspng-2017-mercedes-benz-s-class-convertible-car-interna-silver-mercedes-benz-s-class-cabriolet-car-5a751d08e11a44.952095491517624584922.png', 'Grise', '1000 KM');
 
 -- --------------------------------------------------------
 
@@ -77,11 +80,13 @@ CREATE TABLE `car_drain` (
 
 CREATE TABLE `expenditure` (
   `Id_Expenditure` int(11) NOT NULL,
-  `Details` varchar(250) DEFAULT NULL,
-  `Company_Name` varchar(20) DEFAULT NULL,
   `Species` varchar(250) DEFAULT NULL,
-  `Price_Total` varchar(20) DEFAULT NULL,
-  `Registration_Number` varchar(20) DEFAULT NULL
+  `Company_Name` varchar(20) DEFAULT NULL,
+  `Company_Phone` varchar(20) NOT NULL,
+  `Registration_Number` varchar(20) DEFAULT NULL,
+  `Mark` varchar(20) NOT NULL,
+  `Image_Car` varchar(255) NOT NULL,
+  `Price` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -195,7 +200,7 @@ ALTER TABLE `car_drain`
 -- AUTO_INCREMENT for table `expenditure`
 --
 ALTER TABLE `expenditure`
-  MODIFY `Id_Expenditure` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_Expenditure` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `insurance`
@@ -207,7 +212,7 @@ ALTER TABLE `insurance`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `visit_tech`
@@ -229,7 +234,7 @@ ALTER TABLE `car_drain`
 -- Constraints for table `expenditure`
 --
 ALTER TABLE `expenditure`
-  ADD CONSTRAINT `expenditure_ibfk_1` FOREIGN KEY (`Registration_Number`) REFERENCES `cars` (`Registration_Number`);
+  ADD CONSTRAINT `expenditure_ibfk_1` FOREIGN KEY (`Registration_Number`) REFERENCES `cars` (`Registration_Number`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `insurance`

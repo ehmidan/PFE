@@ -1,0 +1,110 @@
+.back {
+          color: white;
+          background-color: #2f8cb4;
+          border: 1px solid #2f8cb4;
+}
+
+.back:hover {
+          color: #2f8cb4;
+          background-color: white;
+}
+.imgShowMore {
+          height: 75vh;
+          width: 57vw;
+}
+@media (max-width: 320px) {
+          .imgShowMore {
+                    height: 47vh;
+                    width: 87vw;
+          }
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+          text-decoration: none;
+          color: inherit;
+}
+
+.cardstyle {
+          width: 80%;
+          height: 100px;
+          margin-left: 20px;
+          border-radius: 20px;
+}
+.cardstyle1 {
+          background-image: linear-gradient(
+                    to right,
+                    #0c6489 28%,
+                    #7cbdda -72%
+          );
+          margin-top: 80px;
+}
+.carIcon {
+          background-image: url(../image/generalinfo.png);
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 5vw 9vh;
+          height: 10vh;
+}
+
+.cardstyle2 {
+          background-image: linear-gradient(
+                    to right,
+                    #0c6489 28%,
+                    #7cbdda -72%
+          );
+          margin-top: 50px;
+}
+.carIcon2 {
+          background-image: url(../image/assaurance.png);
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 5vw 9vh;
+          height: 11vh;
+}
+.cardstyle3 {
+          background-image: linear-gradient(
+                    to right,
+                    #0c6489 28%,
+                    #7cbdda -72%
+          );
+          margin-top: 50px;
+}
+.carIcon3 {
+          background-image: url(../image/carDrain.png);
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 5vw 8vh;
+          height: 11vh;
+}
+.cardstyle4 {
+          background-image: linear-gradient(
+                    to right,
+                    #0c6489 28%,
+                    #7cbdda -72%
+          );
+          margin-top: 50px;
+}
+.carIcon4 {
+          background-image: url(../image/TechVisit.png);
+          background-repeat: no-repeat;
+          background-position: left;
+          background-size: 5vw 9vh;
+          height: 11vh;
+}
+.cardstyle:hover {
+          z-index: 1.5;
+          transform: scale(1.03);
+          position: relative;
+          top: 10px;
+          left: 25px;
+          box-shadow: 0 25px 50px rgb(52, 102, 131);
+}
+.span1 {
+          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+                    sans-serif;
+          font-size: 20px;
+          color: #2f8cb4;
+}

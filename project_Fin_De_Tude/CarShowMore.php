@@ -35,7 +35,7 @@
         <div class="col-lg-8 row align-items-center cardstyle cardstyle1">
           <div class="col-3 carIcon"></div>
           <div class="col-9">
-            <h3 class="text-white text-center">  General Info</h3>
+            <h3 class="text-center">  General Info</h3>
           </div>
         </div>
         </a>
@@ -44,7 +44,7 @@
           <div class="col-lg-8  row align-items-center cardstyle cardstyle2">
             <div class="col-3 carIcon2 mb-2"></div>
             <div class="col-9">
-              <h3 class="text-white text-center"> Insurance</h3>
+              <h3 class="text-center"> Insurance</h3>
             </div>
           </div>
         </a>
@@ -52,7 +52,7 @@
           <div class="col-lg-8  row align-items-center cardstyle cardstyle3">
             <div class="col-lg-3 col-2 carIcon3 "></div>
             <div class="col-lg-8 col-9 ">
-              <h3 class="text-white text-center">Car drain</h3>
+              <h3 class="text-center">Car drain</h3>
             </div>
           </div>
         </a>
@@ -60,7 +60,7 @@
           <div class="col-lg-8 row align-items-center cardstyle cardstyle4">
             <div class="col-lg-3 col-2 carIcon4 "></div>
             <div class="col-lg-8 col-9">
-              <h3 class="text-white text-center"> Tech visit</h3>
+              <h3 class="text-center"> Tech visit</h3>
             </div>
           </div>
         </a>

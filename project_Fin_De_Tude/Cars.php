@@ -21,16 +21,24 @@
         <li>
           <a href="dashboard.php">Dashboard</a>
         </li>
-        <li>
-          <a href="reservation.php">Reservation</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reservation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="reservation.php">All Reservation</a>
+            <a class="dropdown-item" href="addRes.php">Add Reservation </a>
+
+          </div>
         </li>
+        
         <li class="nav-item dropdown active">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Cars
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="Cars.php">All Cars</a>
-            <a class="dropdown-item" href="AddCar.php">Ajouter Car</a>
+            <a class="dropdown-item" href="AddCar.php">Add Car</a>
 
           </div>
         </li>
@@ -49,7 +57,7 @@
             <span>toggle</span>
           </button>
         </div>
-        <h3 class="admin_text">Admin</h3>
+      
       </nav>
 
       <div class="row justufy-content-center">
@@ -74,7 +82,6 @@
           </div>
         <?php } ?>
       </div>
-      <div class="col-12 text-center mt-5"><a href="AddCar.php"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add Car </button></a></div>
     </div>
   </div>
 

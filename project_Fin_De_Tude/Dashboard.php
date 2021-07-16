@@ -22,8 +22,15 @@
         <li class="active">
           <a href="#">Dashboard</a>
         </li>
-        <li>
-          <a href="reservation.php">Reservation</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reservation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="reservation.php">All Reservation</a>
+            <a class="dropdown-item" href="addRes.php">Add Reservation </a>
+
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,7 +59,7 @@
           </button>
         </div>
         <div class="col-2 text-end">
-          <h3 class="admin_text">Admin</h3>
+        
         </div>
 
       </nav>

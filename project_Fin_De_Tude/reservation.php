@@ -21,8 +21,15 @@
         <li>
           <a href="Dashboard.php">Dashboard</a>
         </li>
-        <li class="active">
-          <a href="#">Reservation</a>
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reservation
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="reservation.php">All Reservation</a>
+            <a class="dropdown-item" href="addRes.php">Add Reservation </a>
+
+          </div>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +56,6 @@
             <span>toggle</span>
           </button>
         </div>
-        <h3 class="admin_text">Admin</h3>
       </nav>
       <table class="table table-gray table-hover" data-aos="fade-down">
         <thead>
@@ -93,9 +99,7 @@
         </tbody>
       </table>
 
-      <div class="row">
-        <div class="col-12 text-center"><a href="AddRes.php"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add Reservation </button></a></div>
-      </div>
+      
 
 
 

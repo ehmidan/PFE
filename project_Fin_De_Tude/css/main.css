@@ -131,6 +131,8 @@ a[aria-expanded='true'] {
 }
 
 .cardstyle {
+
+          border: 3px solid #2f8cb4;
           width: 80%;
           height: 100px;
           margin-left: 20px;
@@ -181,45 +183,45 @@ a[aria-expanded='true'] {
 .carIcon {
           background-image: url(../image/caricon.png);
           background-repeat: no-repeat;
-          background-position: left;
-          background-size: 5vw 6vh;
-          height: 10vh;
+          background-position: center;
+          background-size: 6vw 13vh;
+          height: 12vh;
 }
 
 .cardstyle2 {
-          border: 3px solid #2f8cb4;
+         
           position: relative;
           z-index: 1;
 }
 
 .carIcon2 {
-          background-image: url(../image/Group\ 2.png);
+          background-image: url(../image/rentedCarIcon.png);
           background-repeat: no-repeat;
-          background-position: left;
-          background-size: 5vw 10vh;
+          background-position: center;
+          background-size: 7vw 12vh;
           height: 11vh;
 }
 .cardstyle3 {
-          border: 3px solid #2f8cb4;
+       
           position: relative;
           z-index: 1;
 }
 .carIcon3 {
           background-image: url(../image/Reservationicon.png);
           background-repeat: no-repeat;
-          background-position: left;
+          background-position: center;
           background-size: 5vw 8vh;
           height: 11vh;
 }
 .cardstyle4 {
-          border: 3px solid #2f8cb4;
+      
           position: relative;
           z-index: 1;
 }
 .carIcon4 {
           background-image: url(../image/expenditureicon.png);
           background-repeat: no-repeat;
-          background-position: left;
+          background-position: center;
           background-size: 5vw 8vh;
           height: 11vh;
 }

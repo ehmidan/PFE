@@ -1,0 +1,29 @@
+.form {
+    width: 700px;
+    box-shadow: 2px 2px 4px 4px rgba(38, 117, 207, 0.699);
+    border-radius: 20px;
+    margin-top: 80px;
+}
+.body {
+    height: 700px;
+}
+h2 {
+    font-family: cursive;
+    color: rgba(38, 117, 207, 0.863);
+    font-size: 50px;
+}
+p {
+    color: red;
+}
+
+.back {
+    color: white;
+    background-color: #2f8cb4;
+    border: 1px solid #2f8cb4;
+}
+
+.back:hover {
+    color: #2f8cb4;
+    background-color: white;
+}
+

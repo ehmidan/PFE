@@ -14,7 +14,7 @@ if (isset($_POST["submit"])){
     $Mark = $_POST["Mark"];
     $DStart = $_POST["DStart"];
     $DEnd = $_POST["DEnd"];
-    $Car_Image = $_POST['Car_Image'] . ".png";
+    $Car_Image = $_POST['Car_Image'];
     $Ptotal = $_POST["Ptotal"];
     $registration_number = explode(";", $_POST["registration_number"])[1];
 
@@ -52,22 +52,22 @@ if (isset($_POST["submit"])){
                 <h4 class="col-12 text-center mb-3 mt-1 textcolor">Client Information</h4>
                 <div class="form-group col-6">
                     <label for="exampleInputEmail1">First Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="fname" value=<?= $Res["First_Name"] ?> placeholder="Enter your first name" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="fname" value="<?= $Res["First_Name"] ?>"  type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">last Name</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="lname" value=<?= $Res["Last_Name"] ?> placeholder="Enter your last name" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="lname" value="<?= $Res["Last_Name"] ?>"  type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">Phone</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="phone" value=<?= $Res["Phone"] ?> placeholder="Enter your phone" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="phone" value="<?= $Res["Phone"] ?>"  type="text">
                 </div>
 
                 <div class="form-group col-6">
                     <label for="">CIN</label>
-                    <input class="form-control" aria-describedby="emailHelp" name="CIN" value=<?= $Res["CIN"] ?> placeholder="Enter your CIN" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="CIN" value="<?= $Res["CIN"] ?>"  type="text">
                 </div>
                 <hr>
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
@@ -79,8 +79,7 @@ if (isset($_POST["submit"])){
                         $Get_Car->execute();
                         while ($Car_Info = $Get_Car->fetch()) {
                         ?>
-                            <option value=<?= $Car_Info["Mark"] . "." . $Car_Info["CarImage"] . ";" . $Car_Info["Registration_Number"] ?>><?= $Car_Info["Registration_Number"] ?>
-                            </option>
+                            <option value="<?= $Car_Info["Mark"] . "." . $Car_Info["CarImage"] . ";" . $Car_Info["Registration_Number"] ?>"><?= $Car_Info["Registration_Number"] ?></option>
                         <?php } ?>
 
                     </select>

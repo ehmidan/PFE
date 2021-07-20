@@ -122,11 +122,11 @@ color: inherit;
 :root {
     --gradient: linear-gradient(
         45deg,
-        #0CEDE3,
-        #0CC4F7,
-        #0CC4F7,
-        #0075E0,
-        #0041FC
+        #cfe7f1,
+        #8fc3da,
+        #75a6bb,
+        #2f8cb4,
+        #11455c
     );
 }
 .bgshowmor{

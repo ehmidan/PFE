@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/showmor.css">
+  <link rel="stylesheet" href="./css/Showmor.css">
   <title>Document</title>
 </head>
 

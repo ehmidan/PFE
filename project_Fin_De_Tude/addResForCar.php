@@ -5,19 +5,22 @@ if (isset($_POST['submit'])) {
     $lname = $_POST["lname"];
     $phone = $_POST["phone"];
     $CIN = $_POST["CIN"];
+    $Client_Image = $_FILES['Client_Image']['tmp_name'];
+    $traget = "image/" . $_FILES['Client_Image']['name'];
+    move_uploaded_file($Client_Image, $traget);
     $registration_number = $_POST["registration_number"];
-    $Mark = $_POST["Mark"];
+    $Mark = $_POST["mark"];
     $DStart = $_POST["DStart"];
     $DEnd = $_POST["DEnd"];
     $Car_Image = $_POST['Car_Image'];
     $Ptotal = $_POST["Ptotal"];
   
 
-    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Rigestration_Number,Mark,Date_Start,Date_End,Car_Image,Price_Total) VALUES (:fname, :lname, :phone , :CIN, :registration_number, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal)";
+    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Image_Client,Rigestration_Number,Mark,Date_Start,Date_End,Car_Image,Price_Total) VALUES (:fname, :lname, :phone , :CIN, :Client_Image, :registration_number, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal)";
 
     $pdor = $pdo->prepare($sql);
 
-    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal));
+    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Client_Image" => $traget, ":registration_number" => $registration_number, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal));
     if ($pdoe) {
         header("location:reservation.php");
     } else {
@@ -71,6 +74,10 @@ if ($get = $_GET['id_Car']) {
                     <label for="">CIN</label>
                     <input class="form-control" aria-describedby="emailHelp" name="CIN" placeholder="Enter your CIN" type="text">
                 </div>
+                <div class="form-group col-12">
+                    <label for="">Client Image</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="Client_Image" placeholder="Enter Client Image" type="file">
+                </div>
                 <hr>
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
                 <div class="form-group col-6">
@@ -83,7 +90,7 @@ if ($get = $_GET['id_Car']) {
 
                 <div class="form-group col-6">
                     <label for="">Mark</label>
-                    <input class="form-control" aria-describedby="emailHelp" id="mark" value="<?= $Car_Info["Mark"] ?>" placeholder="Enter the Mark" type="text">
+                    <input class="form-control" aria-describedby="emailHelp" name="mark" value="<?= $Car_Info["Mark"] ?>" placeholder="Enter the Mark" type="text">
                 </div>
 
                 <div class="form-group col-6">

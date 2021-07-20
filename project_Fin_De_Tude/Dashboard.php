@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/maiin.css">
 
   <title>Document</title>
 </head>
@@ -38,13 +38,13 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="Cars.php">All Cars</a>
-            <a class="dropdown-item" href="AddCar.php">Ajouter Car</a>
+            <a class="dropdown-item" href="AddCar.php">Add Car</a>
 
           </div>
         </li>
 
         <li>
-          <a href="#">Client</a>
+          <a href="client.php">Client</a>
         </li>
       </ul>
     </nav>
@@ -59,7 +59,7 @@
           </button>
         </div>
         <div class="col-2 text-end">
-        
+        <a href="index.php" class="btn logout">Log Out</a>
         </div>
 
       </nav>

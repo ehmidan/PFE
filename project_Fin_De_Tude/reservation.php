@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/maiin.css">
   <title>Document</title>
 </head>
 
@@ -37,12 +37,12 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="Cars.php">All Cars</a>
-            <a class="dropdown-item" href="AddCar.php">Ajouter Car</a>
+            <a class="dropdown-item" href="AddCar.php">Add Car</a>
 
           </div>
         </li>
         <li>
-          <a href="#">Client</a>
+          <a href="client.php">Client</a>
         </li>
       </ul>
     </nav>
@@ -69,7 +69,8 @@
             <th>Date End</th>
             <th>Price Total</th>
             <th>Image</th>
-            <th>Actions</th>
+            <th>Edit</th>
+            <th>Delete</th>
 
 
           </tr>
@@ -92,8 +93,8 @@
               <td><?= $res["Date_End"] ?></td>
               <td><?= $res["Price_Total"] ?></td>
               <td><img src="<?= $res["Car_Image"] ?>" class="imgRes" alt=""></td>
-              <td><a href="EditeRes.php?id=<?= $res["Id_Res"] ?>"> <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button></a> <a onclick="return confirm('are you sure you want delete this Reservation')" href="./DeleteRes.php?id=<?= $res["Id_Res"] ?>"><button class="btn btn-outline-danger ml-2"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-              <td></td>
+              <td><a href="EditeRes.php?id=<?= $res["Id_Res"] ?>"> <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button></a> </td>
+              <td><a onclick="return confirm('are you sure you want delete this Reservation')" href="./DeleteRes.php?id=<?= $res["Id_Res"] ?>"><button class="btn btn-outline-danger ml-2"><span class="glyphicon glyphicon-trash"></span></button></a></td>
             </tr>
           <?php } ?>
         </tbody>

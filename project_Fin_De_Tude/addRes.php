@@ -7,19 +7,22 @@ if (isset($_POST['submit'])) {
     $lname = $_POST["lname"];
     $phone = $_POST["phone"];
     $CIN = $_POST["CIN"];
+    $Client_Image = $_FILES['Client_Image']['tmp_name'];
+    $traget = "image/" . $_FILES['Client_Image']['name'];
+    move_uploaded_file($Client_Image, $traget);
     $Mark = $_POST["Mark"];
     $DStart = $_POST["DStart"];
     $DEnd = $_POST["DEnd"];
-    $Car_Image = $_POST['Car_Image'] . ".png";
+    $Car_Image = $_POST["Car_Image"].".png";
     $Ptotal = $_POST["Ptotal"];
     $registration_number = explode(";", $_POST["registration_number"])[1];
 
 
-    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Mark,Date_Start,Date_End,Car_Image,Price_Total,Rigestration_Number) VALUES (:fname, :lname, :phone , :CIN, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal, :regestration_number)";
+    $sql = "INSERT INTO reservation (First_Name,Last_Name,Phone,CIN,Image_Client,Mark,Date_Start,Date_End,Car_Image,Price_Total,Rigestration_Number) VALUES (:fname, :lname, :phone, :CIN, :Client_Image, :Mark, :DStart, :DEnd, :Car_Image, :Ptotal, :regestration_number)";
 
     $pdor = $pdo->prepare($sql);
 
-    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":regestration_number" => $registration_number));
+    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":CIN" => $CIN, ":Client_Image" => $traget, ":Mark" => $Mark, ":DStart" => $DStart, ":DEnd" => $DEnd, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":regestration_number" => $registration_number));
     if ($pdoe) {
         header("location:reservation.php");
     } else {
@@ -69,6 +72,10 @@ if (isset($_POST['submit'])) {
                     <label for="">CIN</label>
                     <input class="form-control" aria-describedby="emailHelp" name="CIN" placeholder="Enter your CIN" type="text">
                 </div>
+                <div class="form-group col-12">
+                    <label for="">Client Image</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="Client_Image" placeholder="Enter Client Image" type="file">
+                </div>
                 <hr>
                 <h4 class="col-12 text-center mb-2 mt-2 textcolor">Car Information</h4>
                 <div class="form-group col-6">
@@ -81,7 +88,10 @@ if (isset($_POST['submit'])) {
                         ?>
                             <option value=<?= $Car_Info["Mark"] . "." . $Car_Info["CarImage"] . ";" . $Car_Info["Registration_Number"] ?>><?= $Car_Info["Registration_Number"] ?>
                             </option>
-                        <?php } ?>
+                        
+                        <?php } 
+                       
+                        ?>
 
                     </select>
                 </div>
@@ -101,7 +111,7 @@ if (isset($_POST['submit'])) {
                     <label for="">Date End</label>
                     <input class="form-control" aria-describedby="emailHelp" name="DEnd" placeholder="Enter Date End" type="datetime-local">
                 </div>
-                <div class="form-group col-12" hidden>
+                <div class="form-group col-12" >
                     <label for="">Car Image</label>
                     <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image" placeholder="Enter Car Image" type="text">
                 </div>
@@ -116,7 +126,7 @@ if (isset($_POST['submit'])) {
         </div>
         </form>
     </div>
-    <script src="app.js"></script>
+    <script src="appp.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/bootstrap.js"></script>

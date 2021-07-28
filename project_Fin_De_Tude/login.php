@@ -29,20 +29,24 @@
             <a href="regester.php" class="btn btn-outline-success mb-3 btn-block">REGESTERE</a>
             <?php
             include "connect.php";
+            session_start();
+          
             //Check If User Exist In Database 
 
 if (isset($_POST['submit'])) {
     $EMAIL = $_POST["user"];
     $PASSWORD = $_POST["pass"];
-    $stmt = $pdo->prepare("SELECT * FROM regester WHERE email = ? AND GroupId = 1");
+    $stmt = $pdo->prepare("SELECT * FROM regester WHERE email = ? AND GroupId = 'admin'");
     $stmt->execute(array($EMAIL));
     $count = $stmt->rowCount();
     if ($count > 0) {
          $Category = $stmt->fetch();
             if(password_verify($PASSWORD,$Category["password"])){
+                $_SESSION["email"]=$EMAIL;
+
                 header("location:Dashboard.php");
             }else {
-            echo '<script> alert ("EROUR")</script>';
+            echo '<script> alert ("you are a not Admine")</script>';
             }  
         
     }else {

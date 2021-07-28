@@ -7,6 +7,7 @@
         $admin = $Get_admin->fetch();
 
         ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,12 +18,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/AddRes.css">
   <title>Document</title>
 </head>
 
 <body>
-  <div class="wrapper">
-  <nav id="sidebar">
+<div class="wrapper">
+    <nav id="sidebar">
       <div class="sidebar-header">
         <div class="logo"></div>
       </div>
@@ -40,7 +42,7 @@
 
           </div>
         </li>
-        <li class="nav-item dropdown active">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Cars
           </a>
@@ -50,11 +52,11 @@
 
           </div>
         </li>
-
         <li>
           <a href="client.php">Client</a>
         </li>
-        <li>
+        
+        <li  class="active">
           <a href="users.php">Users</a>
         </li>
         <li>
@@ -64,9 +66,8 @@
     </nav>
 
 
-
     <div id="content">
-  <div class="row">
+   <div class="row">
       <nav class="navbar navbar-expand-lg navbar-light col-9 row ">
           <div class="container-fluid col-10">
             <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
@@ -84,45 +85,56 @@
            <img src="<?= $admin["Image"]?>" class="imageAdmin" alt="">
           </div>
         </div>
-  </div>
+   </div>
 
-      <div class="row justufy-content-center">
-      <h4 class="col-12 text-center mb-3 mt-1 textcolor">All the cars</h4>
+<h3 class="col-12 text-center mb-5 textcolor">Administration</h3>
+    <table class="table table-gray table-hover mt-5" data-aos="fade-down" >
+      <thead>
+
+        <tr>
+          <th>First name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Administration</th>
+          <th>Action</th>
+        
+     
+        </tr>
+      </thead>
+      <tbody>
         <?php
-        include "connect.php";
-        $Get_Cars = $pdo->prepare("SELECT * FROM cars");
-        $Get_Cars->execute();
+          include "connect.php";
+        $Get_res = $pdo->prepare("SELECT * FROM regester");
+        $Get_res->execute();
 
-        while ($Car = $Get_Cars->fetch()) {
+        while ($res = $Get_res->fetch()) {
 
         ?>
-
-          <div class="card col-lg-3 col-12  mt-3 p-0 cardscars " data-aos="fade-up">
-            <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 15rem;">
-            <div class="card-body card_body_Cars p-3">
-              <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
-              <h7 class="card-title text-white "><img src="./image/boite-de-vitesses (1) 1.png" class="iconsCar" alt=""><?= $Car["Gearbox_Type"] ?></h7>
-              <h7 class="card-title text-white ml-4 "><img src="./image/carburant (1) 1.png" class="iconsCar" alt=""> <?= $Car["Fual_Type"] ?></h7>
-
-              <a href="ShowMorAllCars.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore mt-3">Show More</a>
-              <!-- <a href="addResForCar.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success mt-3">Reservation</a> -->
-              <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger mt-3"><span class="glyphicon glyphicon-trash"></span></a>
-            </div>
-          </div>
+          <tr>
+            <td><?= $res["fname"] ?></td>
+            <td><?= $res["lname"] ?></td>
+            <td><?= $res["email"] ?></td>
+            <td><?= $res["GroupId"] ?></td>
+         
+   
+            <td><a href="Editeadmin.php?id=<?= $res["email"] ?>"> <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button></a> <a onclick="return confirm('are you sure you want delete this user')" href="./Deleteadmin.php?id=<?= $res["email"] ?>"><button class="btn btn-outline-danger ml-2"><span class="glyphicon glyphicon-trash"></span></button></a></td>
+            <td></td>
+          </tr>
         <?php } ?>
-      </div>
-    </div>
-  </div>
+      </tbody>
+    </table>
+
+    
 
 
-  <script src="./bootstrap/js/popper.min.js"></script>
-  <script src="./bootstrap/js/jquery-3.5.1.min.js"></script>
-  <script src="./bootstrap/js/bootstrap.js"></script>
-  <script src="./app.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+    <script src="./bootstrap/js/popper.min.js"></script>
+    <script src="./bootstrap/js/jquery-3.5.1.min.js"></script>
+    <script src="./bootstrap/js/bootstrap.js"></script>
+    <script src="./app.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+</script>
 </body>
 
 </html>

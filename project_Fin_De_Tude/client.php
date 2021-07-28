@@ -1,3 +1,12 @@
+<?php
+        include "connect.php";
+        session_start();
+        $email = $_SESSION["email"];
+        $Get_admin = $pdo->prepare("SELECT * FROM regester WHERE email='$email'");
+        $Get_admin->execute();
+        $admin = $Get_admin->fetch();
+
+        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +16,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/maiin.css">
+  <link rel="stylesheet" href="./css/main.css">
   <title>Document</title>
 </head>
 
@@ -45,22 +54,40 @@
         <li class="active">
           <a href="#">Client</a>
         </li>
+        <li>
+          <a href="users.php">Users</a>
+        </li>
+        <li>
+          <a href="index.php">LogOut</a>
+        </li>
       </ul>
     </nav>
 
 
     <div id="content">
-      <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container-fluid">
-          <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
-            <span class="glyphicon glyphicon-arrow-left"></span>
-            <span>toggle</span>
-          </button>
+<div class="row">
+
+      <nav class="navbar navbar-expand-lg navbar-light col-9 row ">
+          <div class="container-fluid col-10">
+            <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
+              <span class="glyphicon glyphicon-arrow-left"></span>
+              <span>toggle</span>
+            </button>
+          </div>
+          <div class="col-2 text-end">
+          <!-- <a href="index.php" class="btn logout">Log Out</a> -->
+          </div>
+        </nav>
+        <div class="col-3 row align-items-center p-0 m-0">
+          <h5 class="col-8 m-0 p-0"><?= $admin["fname"] ?> <?= $admin["lname"] ?></h5>
+          <div class="photoAdmin">
+           <img src="<?= $admin["Image"]?>" class="imageAdmin" alt="">
+          </div>
         </div>
-      
-      </nav>
+</div>
 
       <div class="row justufy-content-center">
+      <h4 class="col-12 text-center mb-3 mt-1 textcolor">Clients</h4>
         <?php
         include "connect.php";
         $Get_Cars = $pdo->prepare("SELECT DISTINCT First_Name,Last_Name,CIN,Image_Client,Phone FROM reservation");
@@ -76,7 +103,7 @@
               <h5 class="card-title text-white"><?= $Car["First_Name"] ?> <?= $Car["Last_Name"] ?></h5>
               <h7 class="card-title text-white mt-4 "><img src="./image/credit-card 1.png" class="iconsCar" alt=""><?= $Car["CIN"] ?></h7><br>
               <h7 class="card-title text-white  mt-4"><img src="./image/smartphone 1.png" class="iconsCar " alt=""><?= $Car["Phone"] ?></h7>
-              <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger mt-4 ml-5"><span class="glyphicon glyphicon-trash"></span></a>
+              <a href="MoreClient.php?cin=<?php echo $Car["CIN"]; ?>" class="btn btn-outline-light mt-4 ml-4">More</a>
             </div>
           </div>
         <?php } ?>

@@ -30,7 +30,7 @@
         </div>
       <?php } ?>
       <div class="col-lg-5 col-12 order-lg-1 order-2 row">
-      <a href="Dashboard.php"><button class="btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+      <a href="Cars.php"><button class="btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
       <a href="Giniral_Info.php?gin=<?php echo $get ; ?>" class="col-12">
         <div class="col-lg-8 row align-items-center cardstyle cardstyle1">
           <div class="col-3 carIcon"></div>
@@ -40,7 +40,7 @@
         </div>
         </a>
 
-        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+        <a href="Insurance.php?gin=<?php echo $get ; ?>" class="col-12">
           <div class="col-lg-8  row align-items-center cardstyle cardstyle2">
             <div class="col-3 carIcon2 mb-2"></div>
             <div class="col-9">
@@ -48,7 +48,7 @@
             </div>
           </div>
         </a>
-        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+        <a href="Giniral_Info.php?gin=<?php echo $get ; ?>" class="col-12">
           <div class="col-lg-8  row align-items-center cardstyle cardstyle3">
             <div class="col-lg-3 col-2 carIcon3 "></div>
             <div class="col-lg-8 col-9 ">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </a>
-        <a href="Giniral_Info.php?Giniral=<?php echo $Car_info["Registration_Number"]; ?>" class="col-12">
+        <a href="TechVisit.php?gin=<?php echo $get ; ?>" class="col-12">
           <div class="col-lg-8 row align-items-center cardstyle cardstyle4">
             <div class="col-lg-3 col-2 carIcon4 "></div>
             <div class="col-lg-8 col-9">

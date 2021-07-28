@@ -35,6 +35,16 @@
     width: 180px;
     height: 70px;
 }
+.admin{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #2373BE;
+    color: #2373BE;
+}
+.admin:hover{
+    background-color: #2373BE;
+    
+    color: white;
+}
 
 .d-block {
     width: 670px;

@@ -50,6 +50,20 @@ a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
+.imageAdmin{
+    width: 95px;
+    height: 115px;
+
+}
+.photoAdmin{
+    background-color: rgb(218, 231, 230);
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+
+ 
+    border-radius: 50%;
+}
 
 /* Side Bar*/
 
@@ -60,15 +74,16 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 270px;
-    max-width: 270px;
+    min-width: 250px;
+    max-width: 250px;
     background: #0c6489;
     color: #fff;
     transition: all 0.3s;
 }
 
 #sidebar.active {
-    margin-left: -270px;
+    margin-left: -250px;
+   
 }
 
 #sidebar .sidebar-header {
@@ -137,6 +152,9 @@ a[aria-expanded='true'] {
 .logout:hover {
     background-color: #0c6489;
     color: white;
+}
+.textcolor {
+    color: #2f8cb4;
 }
 
 .cardstyle {

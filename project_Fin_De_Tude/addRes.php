@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
                     <label for="">Date End</label>
                     <input class="form-control" aria-describedby="emailHelp" name="DEnd" placeholder="Enter Date End" type="datetime-local">
                 </div>
-                <div class="form-group col-12" >
+                <div class="form-group col-12" hidden>
                     <label for="">Car Image</label>
                     <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image" placeholder="Enter Car Image" type="text">
                 </div>
@@ -126,7 +126,7 @@ if (isset($_POST['submit'])) {
         </div>
         </form>
     </div>
-    <script src="appp.js"></script>
+    <script src="app.js"></script>
     <script src="./js/popper.min.js"></script>
     <script src="./js/jquery-3.5.1.min.js"></script>
     <script src="./js/bootstrap.js"></script>

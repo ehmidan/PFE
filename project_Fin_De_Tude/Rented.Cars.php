@@ -1,3 +1,9 @@
+<!-- <?php
+        include "connect.php";
+        $get = $_GET['id'];
+     
+
+        ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +20,7 @@
 <body>
 <div class="container-fluid">
  
-<a href="Dashboard.php"><button class="btn baack ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+<a href="Dashboard.php?id=<?php echo $get ?>"><button class="btn baack ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
 
         <div class="row justufy-content-center">
         <?php
@@ -30,9 +36,11 @@
                     <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 15rem;">
                     <div class="card-body card_body_Cars p-3">
                         <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
+                        <h7 class="card-title text-white "><img src="./image/boite-de-vitesses (1) 1.png" class="iconsCar" alt=""><?= $Car["Gearbox_Type"] ?></h7>
+              <h7 class="card-title text-white ml-4 "><img src="./image/carburant (1) 1.png" class="iconsCar" alt=""> <?= $Car["Fual_Type"] ?></h7>
 
-                        <a href="CarShowMore.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore">Show More</a>
-                        <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                        <a href="CarShowMoreAvailableCars.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore mt-3 ml-3">Show More</a>
+                        <a onclick="return confirm('are you sure you want delete this Reservation')" href="DeleteRes.php?id=<?php echo $Car["Id_Res"]; ?>" class="btn btn-danger mt-3"><span class="glyphicon glyphicon-trash"></span></a>
                     </div>
                 </div>
             <?php } ?>

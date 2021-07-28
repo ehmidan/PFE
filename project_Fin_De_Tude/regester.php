@@ -15,7 +15,7 @@
 <a href="login.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
     <div class="row  p-0 m-0  justify-content-center align-items-center">
 
-        <form action="" method="post" class="col-7 row form">
+        <form action="" method="post" class="col-7 row form"  enctype="multipart/form-data">
             <h2 class="col-12 text-center mb-5 "> Regestere</h2>
             <div class="form-group col-6">
                 <label for="exampleInputEmail1">First Name</label>
@@ -36,6 +36,10 @@
                 <label for="">email</label>
                 <input class="form-control" aria-describedby="emailHelp" name="email" placeholder="Enter your email" type="text" required>
             </div>
+            <div class="form-group col-12">
+                    <label for="">Image</label>
+                    <input class="form-control" aria-describedby="emailHelp" name="Client_Image" placeholder="Enter Client Image" type="file">
+                </div>
 
             <div class="form-group col-12">
                 <label for="">Password</label>
@@ -65,16 +69,19 @@ if (isset($_POST['submit'])) {
     $lname = $_POST['lname'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $Client_Image = $_FILES['Client_Image']['tmp_name'];
+    $traget = "image/" . $_FILES['Client_Image']['name'];
+    move_uploaded_file($Client_Image, $traget);
     $password = $_POST['password'];
     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
     $confirm = $_POST['confirm'];
     $hashedConfirm = password_hash($confirm, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO  regester (fname,lname,email,phone,password,confirm) VALUES (:fname ,:lname ,:email , :phone , :password, :confirm)";
+    $sql = "INSERT INTO  regester (fname,lname,email,Image,phone,password,confirm) VALUES (:fname ,:lname ,:email ,:image ,:phone , :password, :confirm)";
 
     $pdor = $pdo->prepare($sql);
 
-    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":email" => $email, ":password" => $hashedPass, ":confirm" => $hashedConfirm));
+    $pdoe = $pdor->execute(array(":fname" => $fname, ":lname" => $lname, ":phone" => $phone, ":email" => $email, ":image" => $traget, ":password" => $hashedPass, ":confirm" => $hashedConfirm));
     if ($pdoe) {
         header("location:login.php");
     } else {

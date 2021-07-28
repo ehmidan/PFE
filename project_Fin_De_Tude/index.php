@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./css/sitestyle.css">
+  <link rel="stylesheet" href="./css/SiteStyle.css">
   <title>Document</title>
 </head>
 
@@ -33,7 +34,7 @@
             <a class="nav-link font-weight-bold" href="#contact">CONTACT</a>
           </li>
           <li class="nav-item ">
-            <a class="btn btn-outline-primary" href="login.php">Admin</a>
+            <a class="btn admin" href="login.php">Admin</a>
           </li>
         </ul>
       </div>
@@ -44,14 +45,14 @@
     <div class="col-11 row p-0 m-0 home_body ">
       <div class="col-lg-6 col-12 order-lg-1 order-2 mt-lg-5 text-center ">
         <img src="./image/Titel.png" class="titel mt-lg-5 mb-lg-3" alt="">
-        <h5 class="mt-lg-5 mt-3">Here you can rent a car of any brand</h5>
-        <p class="mt-3 mb-5">The car rental revolution: no more paperwork or endless
+        <h5 class="mt-lg-5 mt-3" data-aos="fade-up">Here you can rent a car of any brand</h5>
+        <p class="mt-3 mb-5" data-aos="fade-up">The car rental revolution: no more paperwork or endless
           waiting lines,<br> premium cars guaranteed end your virtual
           key directly in our company.</p>
       </div>
 
       <div class="col-lg-6 col-12 order-lg-2 order-1 align-self-center">
-        <div id="carouselExampleControls" class="carousel slide  p-0 m-0" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide  p-0 m-0" data-ride="carousel" data-aos="fade-up">
           <div class="carousel-inner p-0 m-0">
             <div class="carousel-item active">
               <img src="./site_image/kisspng-bmw-x6-car-bmw-x7-bmw-1-series-bmw-x6-png-clipart-5a777a0e376162.8385051215177794702269.png" class="d-block " alt="...">
@@ -95,11 +96,11 @@
 
         <!-- Slider -->
         <div class="row justify-content-center">
-          <div class="swiper-container mySwiper col-11">
+          <div class="swiper-container mySwiper col-11" data-aos="fade-up">
             <div class="swiper-wrapper">
               <?php
               include "connect.php";
-              $Get_Cars = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number NOT IN (SELECT Rigestration_Number FROM reservation WHERE CURRENT_TIMESTAMP BETWEEN Date_Start AND Date_End)");
+              $Get_Cars = $pdo->prepare("SELECT * FROM cars");
               $Get_Cars->execute();
 
               while ($Car = $Get_Cars->fetch()) {
@@ -139,7 +140,7 @@
           <img src="./site_image/titel3.png" class="titel mb-lg-3" alt="">
         </div>
         <div class="row">
-          <div class="col-4  wheels_text">
+          <div class="col-4  wheels_text" data-aos="fade-up">
             <div class=" ml-lg-5 mt-lg-3 pt-lg-5">
               <h5>Large, deep shoulder line</h5>
               <p>for better cleaning and less stone engagement</p>
@@ -156,13 +157,13 @@
     
         
         </div>
-          <div class="col-8 p-0 m-0"><img src="./site_image/wheels.png" class="wheels col-12" alt=""></div>
+          <div class="col-8 p-0 m-0" data-aos="fade-up"><img src="./site_image/wheels.png" class="wheels col-12" alt=""></div>
        
         </div>
       </div>
 
       <div class="col-lg-4 col-12 order-lg-2 order-2 align-self-center">
-        <div class="bbb_advs">
+        <div class="bbb_advs" data-aos="fade-up">
           <div class="row justufy-content-end ">
             <div class="col-lg-9 bbb_adv_col">
               <!-- bbb_adv Item -->
@@ -227,11 +228,11 @@
         </div>
 
       <div class="col-lg-6 col-12 align-self-center order-lg-1 order-2">
-       <div class="map_wrapper ml-5">
+       <div class="map_wrapper ml-5" data-aos="fade-up">
           <iframe class="googlemap  ml-3" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1618.3890053515408!2d-5.82163649183431!3d35.780828995042775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c78aeba189d47%3A0x7fa71fc35c067aad!2sIberia%2C%20Tanger!5e0!3m2!1sfr!2sma!4v1626624622387!5m2!1sfr!2sma" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
        </div>
       </div>
-      <div class="col-lg-6 col-12 order-lg-2 order-1">
+      <div class="col-lg-6 col-12 order-lg-2 order-1" data-aos="fade-up">
       <form action="" method="post" class="row form" enctype="multipart/form-data">
                 <h2 class="col-12 text-center text-white mt-1 textcolor">Write Us</h2>
                 <p class="col-12 text-center text-white mb-5 ">We're watching for your letters!</p>
@@ -294,7 +295,10 @@
 
     });
   </script>
-
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>

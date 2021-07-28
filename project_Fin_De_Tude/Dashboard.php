@@ -1,3 +1,13 @@
+<?php
+        include "connect.php";
+        session_start();
+        $email = $_SESSION["email"];
+        $Get_admin = $pdo->prepare("SELECT * FROM regester WHERE email='$email'");
+        $Get_admin->execute();
+        $admin = $Get_admin->fetch();
+
+        ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="./css/maiin.css">
+  <link rel="stylesheet" href="./css/main.css">
 
   <title>Document</title>
 </head>
@@ -46,12 +56,20 @@
         <li>
           <a href="client.php">Client</a>
         </li>
+        <li>
+          <a href="users.php">Users</a>
+        </li>
+        <li>
+          <a href="index.php">LogOut</a>
+        </li>
+        
       </ul>
     </nav>
 
 
     <div id="content">
-      <nav class="navbar navbar-expand-lg navbar-light row ">
+      <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light col-9 row ">
         <div class="container-fluid col-10">
           <button type="button" id="sidebarCollapse" data-toggle="collapse" class="btn toggeles">
             <span class="glyphicon glyphicon-arrow-left"></span>
@@ -59,11 +77,16 @@
           </button>
         </div>
         <div class="col-2 text-end">
-        <a href="index.php" class="btn logout">Log Out</a>
+        <!-- <a href="index.php" class="btn logout">Log Out</a> -->
         </div>
-
       </nav>
-
+      <div class="col-3 row align-items-center p-0 m-0">
+        <h5 class="col-8 m-0 p-0 order-lg-1 order-2"><?= $admin["fname"] ?> <?= $admin["lname"] ?></h5>
+        <div class="photoAdmin order-lg-2 order-1">
+         <img src="<?= $admin["Image"]?>" class="imageAdmin" alt="">
+        </div>
+      </div>
+</div>
       <br><br>
 
       <div class="row justify-content-center ml-5">
@@ -87,7 +110,7 @@
           </div>
         </a>
 
-        <div class="col-12 row justify-content-center dashoardImgdiv ">
+        <div class="col-12 row justify-content-center dashoardImgdiv">
           <svg width="653" height="264" viewBox="0 0 653 264" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="undraw_by_my_car_ttge 1">
               <path id="Vector" opacity="0.1" d="M40.7255 87.3112C54.6061 111.262 36.8957 138.851 16.0813 159.647C9.10106 166.608 1.42807 173.895 0.44896 182.657C-0.716642 193.343 8.7547 203.168 19.9978 209.59C40.4924 221.293 68.4935 224.911 92.8845 219.008C113.965 213.92 131.689 202.385 152.95 197.734C188.53 189.954 226.216 202.853 256.661 218.917C278.208 230.284 301.287 244.104 327.264 241.677C345.554 239.967 361.073 230.162 371.596 218.612C376.678 213.014 381.101 206.791 388.508 203.026C392.91 200.787 398.079 199.601 403.254 198.757C450.478 191.048 500.585 209.865 547.183 200.187C578.654 193.648 603.751 174.643 619.35 152.768C634.949 130.893 642.236 106.184 648.304 81.7038C652.613 64.3067 656.19 45.5357 646.305 29.5277C635.822 12.5936 611.557 2.33031 587.173 0.411992C562.788 -1.50632 538.324 3.81102 515.858 11.3113C487.784 20.6891 460.269 33.8171 429.623 33.8629C408.756 33.8935 388.861 27.7569 368.906 23.1112C335.483 15.3107 300.848 11.4334 266.259 7.85628C233.163 4.43181 199.747 1.2414 166.451 3.27675C142.892 4.70658 122.091 11.5861 99.232 14.7663C84.3323 16.8423 69.3593 15.2751 54.7394 18.7912C36.7558 23.0909 18.2127 33.0692 17.2203 48.7668C16.2812 63.691 33.3589 74.5954 40.7255 87.3112Z" fill="#2F8CB4" />
@@ -144,7 +167,7 @@
           <div class="col-lg-9  row align-items-center cardstyle cardstyle3  mr-4">
             <div class="col-lg-3 col-2 carIcon3 "></div>
             <div class="col-lg-8 col-9 ">
-              <h3 class=" text-center">Reservation</h3>
+              <h3 class=" text-center">Reservation </h3>
             </div>
           </div>
         </a>
@@ -162,6 +185,7 @@
       </div>
     </div>
   </div>
+
 
 
 

@@ -1,9 +1,11 @@
-<!-- <?php
-        include "connect.php";
-        $get = $_GET['id'];
-     
+<?php
+  include "connect.php";
+  $get = $_GET['gin'];
+  $Get_Car = $pdo->prepare("SELECT * FROM cars WHERE Registration_Number ='$get'");
+  $Get_Car->execute();
+  $Car_Info = $Get_Car->fetch();
+  ?>
 
-        ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,19 +22,19 @@
 
 <body>
 <div class="container-fluid">
-<a href="Dashboard.php?id=<?php echo $get?>"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+<a href="CarShowMoreAvailableCars.php?id_Car=<?=$Car_Info ["Registration_Number"]?>"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+<h3 class="col-12 text-center mb-5 textcolor">Visit Tech</h3>
     <table class="table table-gray table-hover mt-5" data-aos="fade-down" >
       <thead>
 
         <tr>
-          <th>Species</th>
+          <th>Registration_Number</th>
           <th>Company_Name</th>
           <th>Company_Phone</th>
-          <th>Registration_Number</th>
-          <th>Mark</th>
-          <th>Image_Car</th>
-          <th>Price</th>
-
+          <th>Date of operation</th>
+          <th>Species</th>
+          <th>Price total</th>
+          <th>Action</th>
          
        
 
@@ -40,31 +42,30 @@
       </thead>
       <tbody>
         <?php
-        include "connect.php";
-        $Get_res = $pdo->prepare("SELECT * FROM expenditure");
+        
+        $Get_res = $pdo->prepare("SELECT * FROM visit_tech WHERE Registration_Number = '$get'");
         $Get_res->execute();
 
         while ($res = $Get_res->fetch()) {
 
         ?>
           <tr>
-            <td><?= $res["Species"] ?></td>
+            <td><?= $res["Registration_Number"] ?></td>
             <td><?= $res["Company_Name"] ?></td>
             <td><?= $res["Company_Phone"] ?></td>
-            <td><?= $res["Registration_Number"] ?></td>
-            <td><?= $res["Mark"] ?></td>
-            <td><img src="<?= $res["Image_Car"] ?>" class="imgRes" alt=""></td>
-            <td><?= $res["Price"] ?></td>
-<!--            
+            <td><?= $res["Date_Of_Operation"] ?></td>
+            <td><?= $res["Species"] ?></td>
+            <td><?= $res["Price_Total"] ?></td>
+   
             <td><a href="EditeRes.php?id=<?= $res["Id_Res"] ?>"> <button class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span></button></a> <a onclick="return confirm('are you sure you want delete this Reservation')" href="./DeleteRes.php?id=<?= $res["Id_Res"] ?>"><button class="btn btn-outline-danger ml-2"><span class="glyphicon glyphicon-trash"></span></button></a></td>
-            <td></td> -->
+            <td></td>
           </tr>
         <?php } ?>
       </tbody>
     </table>
 
     <div class="row">
-      <div class="col-12 text-center"><a href="AddExpanditure.php"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add</button></a></div>
+      <div class="col-12 text-center"><a href="AddVisitTech.php?id=<?= $get ?>"><button class="btn toggeles"><span class="glyphicon glyphicon-plus-sign"></span>Add</button></a></div>
     </div>
 
 

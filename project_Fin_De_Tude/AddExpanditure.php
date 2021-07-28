@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
     $pdoe = $pdor->execute(array(":specie" => $Specie, ":Company_Name" => $Company_Name, ":phone" => $Company_phone, ":Mark" => $Mark, ":Car_Image" => $Car_Image, ":Ptotal" => $Ptotal, ":regestration_number" => $registration_number));
     if ($pdoe) {
-        header("location:reservation.php");
+        header("location:Expinditure.php");
     } else {
         echo "Data not insert";
     }
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
                     <input class="form-control" aria-describedby="emailHelp" id="markk" name="Mark" placeholder="Enter the Mark" type="text">
                 </div>
 
-                <div class="form-group col-12" hidden>
+                <div class="form-group col-12">
                     <label for="">Car Image</label>
                     <input class="form-control" aria-describedby="emailHelp" id="regestration" name="Car_Image" placeholder="Enter Car Image" type="text">
                 </div>

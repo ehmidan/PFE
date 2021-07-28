@@ -1,3 +1,9 @@
+<!-- <?php
+        include "connect.php";
+        $get = $_GET['id'];
+    
+        ?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
 </head>
 
 <body>
-    <a href="Dashboard.php"><button class="btn baack ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+    <a href="Dashboard.php?id=<?php echo $get ?>"><button class="btn baack ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
 <div class="container-fluid row justufy-content-center">
  
             <?php
@@ -28,10 +34,11 @@
                     <img class="card-img-top" src="<?= $Car["CarImage"] ?>" alt="Card image cap" style="height: 15rem;">
                     <div class="card-body card_body_Cars">
                         <h5 class="card-title text-white"><?= $Car["Mark"] ?></h5>
-                        
-                        <a href="CarShowMore.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore">Show More</a>
-                        <a href="addResForCar.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success">Reservation</a>
-                        <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                        <h7 class="card-title text-white "><img src="./image/boite-de-vitesses (1) 1.png" class="iconsCar" alt=""><?= $Car["Gearbox_Type"] ?></h7>
+                        <h7 class="card-title text-white ml-4 "><img src="./image/carburant (1) 1.png" class="iconsCar" alt=""> <?= $Car["Fual_Type"] ?></h7>
+                        <a href="CarShowMoreAvailableCars.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn_car_showmore mt-3">Show More</a>
+                        <a href="addResForCar.php?id_Car=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-success mt-3">Reservation</a>
+                        <!-- <a onclick="return confirm('are you sure you want delete this Car')" href="DeleteCar.php?id=<?php echo $Car["Registration_Number"]; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a> -->
                     </div>
                 </div>
             <?php } ?>

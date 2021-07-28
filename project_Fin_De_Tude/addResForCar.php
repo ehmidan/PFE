@@ -1,5 +1,6 @@
 <?php
 include "connect.php";
+       
 if (isset($_POST['submit'])) {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
@@ -50,7 +51,7 @@ if ($get = $_GET['id_Car']) {
 <body>
     <div class="container-fluid">
 
-        <a href="reservation.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
+        <a href="Available_Cars.php"><button class="btn btn back ml-5 mt-3 "><span class="glyphicon glyphicon-arrow-left"></span></button></a>
         <div class="row  justify-content-center align-items-center">
 
             <form action="" method="post" class="col-7 row form" enctype="multipart/form-data">

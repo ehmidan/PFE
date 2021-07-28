@@ -12,3 +12,13 @@
 .textcolor {
           color: #2f8cb4;
 }
+.button_add_res{
+    color: white;
+    background-color: #2f8cb4;
+    border: 1px solid #2f8cb4;
+}
+.button_add_res:hover {
+    color: #2f8cb4;
+    background-color: white;
+}
+

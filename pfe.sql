@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2021 at 06:17 PM
+-- Generation Time: Jul 29, 2021 at 02:30 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.3.28
 
@@ -49,7 +49,6 @@ CREATE TABLE `cars` (
 INSERT INTO `cars` (`Registration_Number`, `Date_Of_Purchase`, `Buying_Price`, `Mark`, `Gearbox_Type`, `Fual_Type`, `End_Of_Circulation`, `Price_Max`, `Price_Min`, `CarImage`, `Car_Color`, `Mileage`) VALUES
 ('f121/342/11', '2020-02-14', '270 000 DH', 'BMW', 'manual lever', 'Gasoline', '2024-02-14', '700 DH', '600 DH', 'image/kisspng-2017-bmw-m3-2018-bmw-m3-car-bmw-x6-bmw-m3-png-clipart-5a7a261ad5a4f9.1150222315179545868751.png', 'White', '1000 KM'),
 ('f121/342/222', '2020-04-14', '250', 'Audi_A3', 'manual lever', 'diesel', '2024-07-14', '60DH', '40', 'image/kisspng-audi-rs-6-audi-rs6-audi-a6-car-audi-5abf3cdcd2ceb1.7644250615224823968635.png', 'Red', '1000 KM'),
-('f121/342/32', '2019-06-14', '270 000 DH', 'BMW', 'automatic', 'diesel', '2021-07-15', '700 DH', '600 DH', 'image/kisspng-bmw-x6-car-bmw-x7-bmw-1-series-bmw-x6-png-clipart-5a777a0e376162.8385051215177794702269.png', '', '1000 KM'),
 ('f121/342/33', '2019-03-14', '250 000 DH', 'Audi', 'automatic', 'diesel', '2024-06-14', '700 DH', '600 DH', 'image/kisspng-2015-audi-s5-audi-rs5-car-2016-audi-s5-5b6897f40b7685.157663721533581300047 (1).png', 'Black', '1000 KM'),
 ('f121/342/34', '2020-02-14', '200 000 DH', 'Polo', 'automatic', 'diesel', '2025-02-14', '600DH', '500 DH', 'image/kisspng-car-volkswagen-polo-1-0-mpi-48kw-trendline-bmt-vol-vw-polo-5b16bb1055e220.0857038815282163363518.png', 'blue', '1000 KM'),
 ('f121/342/3490', '2021-07-09', '1 000 000 D', 'Mercedes-G-Class', 'automatic', 'diesel', '2024-11-14', '1 500 DH', '1 200 DH', 'image/5a2192e194e886.5754760515121497296099.png', 'Black', '1000 KM'),
@@ -152,8 +151,8 @@ CREATE TABLE `reservation` (
 --
 
 INSERT INTO `reservation` (`Id_Res`, `First_Name`, `Last_Name`, `Phone`, `CIN`, `Image_Client`, `Mark`, `Date_Start`, `Date_End`, `Car_Image`, `Price_Total`, `Rigestration_Number`) VALUES
-(50, 'soulayman', 'ehmidan', '+212 62 758 4621', 'BS2763523', 'image/SOULAYMAN.png', 'Polo', '2021-07-26 19:23:00', '2021-07-30 19:23:00', 'image/kisspng-car-volkswagen-polo-1-0-mpi-48kw-trendline-bmt-vol-vw-polo-5b16bb1055e220.0857038815282163363518.png', '2000dh', 'f121/342/34'),
-(52, 'soulayman', 'ehmidan', '+212 62 758 4621', 'BS2763523', 'image/SOULAYMAN.png', 'Audi_A3', '2021-07-26 19:40:00', '2021-07-30 19:40:00', 'image/kisspng-audi-rs-6-audi-rs6-audi-a6-car-audi-5abf3cdcd2ceb1.7644250615224823968635.png', '2000dh', 'f121/342/222');
+(52, 'soulayman', 'ehmidan', '+212 62 758 4621', 'BS2763523', 'image/SOULAYMAN.png', 'Audi_A3', '2021-07-26 19:40:00', '2021-07-30 19:40:00', 'image/kisspng-audi-rs-6-audi-rs6-audi-a6-car-audi-5abf3cdcd2ceb1.7644250615224823968635.png', '2000dh', 'f121/342/222'),
+(55, 'soulayman', 'ehmidan', '+212 62 758 4621', 'BS2763523', 'image/SOULAYMAN.png', 'Polo', '2021-07-29 12:21:00', '2021-07-31 12:21:00', 'image/kisspng-car-volkswagen-polo-1-0-mpi-48kw-trendline-bmt-vol-vw-polo-5b16bb1055e220.0857038815282163363518.png', '600', 'f121/342/11');
 
 -- --------------------------------------------------------
 
@@ -249,7 +248,7 @@ ALTER TABLE `insurance`
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `Id_Res` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `visit_tech`
